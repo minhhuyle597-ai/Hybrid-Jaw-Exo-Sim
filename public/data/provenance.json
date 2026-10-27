@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fps": 25,
+  "duration_s": 21.44,
+  "muscles": [
+    {
+      "id": 0,
+      "name": "posterior_temporalis_left",
+      "tendon": "_posterior_temporalis_left_tendon"
+    },
+    {
+      "id": 1,
+      "name": "posterior_temporalis_right",
+      "tendon": "_posterior_temporalis_right_tendon"
+    },
+    {
+      "id": 2,
+      "name": "medial_temporalis_left",
+      "tendon": "_medial_temporalis_left_tendon"
+    },
+    {
+      "id": 3,
+      "name": "medial_temporalis_right",
+      "tendon": "_medial_temporalis_right_tendon"
+    },
+    {
+      "id": 4,
+      "name": "anterior_temporalis_left",
+      "tendon": "_anterior_temporalis_left_tendon"
+    },
+    {
+      "id": 5,
+      "name": "anterior_temporalis_right",
+      "tendon": "_anterior_temporalis_right_tendon"
+    },
+    {
+      "id": 6,
+      "name": "medial_pterygoid_left",
+      "tendon": "_medial_pterygoid_left_tendon"
+    },
+    {
+      "id": 7,
+      "name": "medial_pterygoid_right",
+      "tendon": "_medial_pterygoid_right_tendon"
+    },
+    {
+      "id": 8,
+      "name": "superior_lateral_pterygoid_left",
+      "tendon": "_superior_lateral_pterygoid_left_tendon"
+    },
+    {
+      "id": 9,
+      "name": "superior_lateral_pterygoid_right",
+      "tendon": "_superior_lateral_pterygoid_right_tendon"
+    },
+    {
+      "id": 10,
+      "name": "inferior_lateral_pterygoid_left",
+      "tendon": "_inferior_lateral_pterygoid_left_tendon"
+    },
+    {
+      "id": 11,
+      "name": "inferior_lateral_pterygoid_right",
+      "tendon": "_inferior_lateral_pterygoid_right_tendon"
+    },
+    {
+      "id": 12,
+      "name": "superficial_masseter_left",
+      "tendon": "_superficial_masseter_left_tendon"
+    },
+    {
+      "id": 13,
+      "name": "superficial_masseter_right",
+      "tendon": "_superficial_masseter_right_tendon"
+    },
+    {
+      "id": 14,
+      "name": "deep_masseter_left",
+      "tendon": "_deep_masseter_left_tendon"
+    },
+    {
+      "id": 15,
+      "name": "deep_masseter_right",
+      "tendon": "_deep_masseter_right_tendon"
+    },
+    {
+      "id": 16,
+      "name": "geniohyoid_left",
+      "tendon": "_geniohyoid_left_tendon"
+    },
+    {
+      "id": 17,
+      "name": "geniohyoid_right",
+      "tendon": "_geniohyoid_right_tendon"
+    },
+    {
+      "id": 18,
+      "name": "anterior_digastric_left",
+      "tendon": "_anterior_digastric_left_tendon"
+    },
+    {
+      "id": 19,
+      "name": "anterior_digastric_right",
+      "tendon": "_anterior_digastric_right_tendon"
+    },
+    {
+      "id": 20,
+      "name": "posterior_mylohyoid_left",
+      "tendon": "_posterior_mylohyoid_left_tendon"
+    },
+    {
+      "id": 21,
+      "name": "posterior_mylohyoid_right",
+      "tendon": "_posterior_mylohyoid_right_tendon"
+    },
+    {
+      "id": 22,
+      "name": "anterior_mylohyoid_left",
+      "tendon": "_anterior_mylohyoid_left_tendon"
+    },
+    {
+      "id": 23,
+      "name": "anterior_mylohyoid_right",
+      "tendon": "_anterior_mylohyoid_right_tendon"
+    }
+  ],
+  "dofs": [
+    {
+      "name": "_tmj_slide_xz",
+      "type": "translation",
+      "unit": "N"
+    },
+    {
+      "name": "_tmj_slide_y",
+      "type": "translation",
+      "unit": "N"
+    },
+    {
+      "name": "_tmj_hinge_x",
+      "type": "rotation",
+      "unit": "N·m"
+    },
+    {
+      "name": "_tmj_hinge_y",
+      "type": "rotation",
+      "unit": "N·m"
+    },
+    {
+      "name": "_tmj_hinge_z",
+      "type": "rotation",
+      "unit": "N·m"
+    }
+  ],
+  "model": "assets/mjcf/exoskeleton/jaw/jaw_exo_model_rigid_skin_sep_compiled_wo_flex.xml",
+  "reference": "data/jaw/jaw_ref_sub_skip_y_hinge_18_deg_ik_best.h5",
+  "upstream": "https://github.com/paulotto/hybrid-jaw-exo-sim/tree/v0.1.0",
+  "release_commit": "f4d76c75be22c40eb0d1abdd1bde6a2c443df198",
+  "mujoco": "3.4.0",
+  "model_sha256": "77a0cfb0906f48d387ef68ad4d5e587b5dc6081def0c178e3c842d5cf9788e75",
+  "reference_sha256": "65e5c500d7c53e143dae73399722f035c7151bd830edefe2d4eb7d4d70411ee1",
+  "dt_s": 0.001,
+  "pid": {
+    "kp": 200,
+    "ki": 50,
+    "kd": 20,
+    "derivative_filter_tau": 0.01,
+    "invert_error": true
+  },
+  "reference_fk_max_error_m": 2.440877354403792e-09,
+  "force_sum_max_error": 0,
+  "notes": [
+    "官方 wo_flex 刚体模型，24 肌肉 PID 跟踪；4 个外骨骼执行器输入及输出均为零。",
+    "不含柔性面罩，不是完整 BioRob 软体实验复现。",
+    "肌腱路径长度并非单独肌纤维长；执行器力保留 MuJoCo 符号。",
+    "旋转自由度显示 N·m，平移自由度显示 N；未计算牙齿咬合力或关节反作用力。"
+  ],
+  "video_manifest": "data/views.json",
+  "model_changes": {
+    "exo_actuator_gainprm": "zero for indices 24:28",
+    "exo_actuator_biasprm": "zero for indices 24:28"
+  }
+}

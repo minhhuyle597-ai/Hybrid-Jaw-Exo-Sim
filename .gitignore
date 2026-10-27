@@ -1,0 +1,8 @@
+node_modules/
+.runtime/
+__pycache__/
+
+dist/
+.venv/
+*.pyc
+

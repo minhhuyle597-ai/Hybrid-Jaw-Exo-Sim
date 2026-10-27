@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "frames": 536,
+  "video": {
+    "plugin": "ffmpeg",
+    "nframes": 536,
+    "ffmpeg_version": "7.1-essentials_build-www.gyan.dev built with gcc 14.2.0 (Rev1, Built by MSYS2 project)",
+    "codec": "h264",
+    "pix_fmt": "yuv420p(progressive)",
+    "fps": 25.0,
+    "source_size": [
+      1280,
+      720
+    ],
+    "size": [
+      1280,
+      720
+    ],
+    "rotate": 0,
+    "duration": 21.44
+  },
+  "muscles": 24,
+  "max_jacobian_finite_difference_error": 3.8375079156049985e-10,
+  "generalized_force_sum_max_error": 0,
+  "qpos_range": [
+    0.008287730730702342,
+    0.007738574836779812,
+    0.04219852844476069,
+    0.23900962097463177,
+    0.05601599068433943
+  ],
+  "max_absolute_actuator_force_N": 149.33820025018346,
+  "path_length_tracking_rmse_mm": 2.711701704273514,
+  "view_count": 5,
+  "checks": [
+    "All five MP4 frame counts, FPS, duration and hashes",
+    "All 536x24 projected paths finite and inside frame for each view",
+    "24 unique fixed muscle colors and stable IDs",
+    "MP4 frame count, FPS and duration",
+    "SHA256 matches provenance",
+    "Saved NPZ re-evaluation matches JSON lengths, forces and all 5 generalized-force contributions",
+    "Moment arm checked against numerical derivative",
+    "Four exo actuator outputs zero",
+    "24 muscle control inputs in [0,1]",
+    "Finite data and nontrivial jaw motion"
+  ]
+}

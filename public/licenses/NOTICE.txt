@@ -1,0 +1,45 @@
+# hybrid-jaw-exo-sim
+
+Copyright 2026 Paul-Otto Müller
+
+This repository includes software developed by Paul-Otto Müller
+(Simulation, Systems Optimization and Robotics Group, Technical University of Darmstadt).
+
+Licensed under the Apache License, Version 2.0.
+See the LICENSE file for the full license text.
+
+---
+
+## Funding
+
+This work was partially supported by the Deutsche Forschungsgemeinschaft (DFG) --
+Research Training Group 2761 LokoAssist (Grant no. 450821862).
+
+---
+
+## Third-party anatomical bone meshes (ArtiSynth / dynjaw)
+
+Initial anatomical bone mesh files were obtained from the dynjaw demo of the
+ArtiSynth framework ([https://www.artisynth.org/Software/ModelsDownload](https://www.artisynth.org/Software/ModelsDownload)).
+
+  Hannam, A. G., Stavness, I., Lloyd, J. E., & Fels, S. (2008).
+  A dynamic model of jaw and hyoid biomechanics during chewing.
+  Journal of Biomechanics, 41(5), 1069–1076.
+
+Copyright (c) 2014, ArtiSynth, A. G. Hannam
+All rights reserved.
+
+THIS SOFTWARE AND DATA IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING,
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+See also: assets/meshes/anatomical/jaw/README.md
