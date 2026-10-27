@@ -73,6 +73,15 @@ export default function TextbookPanel({
         <div className="teaching-block phase">
           <b>当前观察片段</b>
           <p>{phase.title} · {phase.question}</p>
+          <div className="chip-row">
+            {(phase.topics || []).map((topic) => <span className="chip" key={topic}>{topic}</span>)}
+          </div>
+          <small className="citation-line">
+            {(phase.citations || []).map((citation) => {
+              const source = sourceMap.get(citation.source_id);
+              return `${source?.title || citation.source_id} · 第 ${citation.pages} 页`;
+            }).join('；')}
+          </small>
         </div>
       )}
 
@@ -84,6 +93,14 @@ export default function TextbookPanel({
               <li key={claim.statement}>
                 <span>{claim.statement}</span>
                 <small>{supportLabels[claim.support_level] || claim.support_level}</small>
+                <small className="citation-line">
+                  {(claim.citations || []).length > 0
+                    ? claim.citations.map((citation) => {
+                      const source = sourceMap.get(citation.source_id);
+                      return `${source?.title || citation.source_id} · 第 ${citation.pages} 页`;
+                    }).join('；')
+                    : '模型定义，不对应教材页码'}
+                </small>
               </li>
             ))}
           </ul>

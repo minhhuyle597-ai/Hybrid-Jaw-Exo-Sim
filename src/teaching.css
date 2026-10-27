@@ -58,3 +58,10 @@
 .link-button{border:0;background:none;color:#087e74;padding:0;text-align:left;font-size:11px}
 .boundary-list{margin-top:18px;padding:12px;background:#f8f6ee;border-radius:7px}
 .boundary-list p{font-size:10px;color:#766b51;margin:5px 0}
+
+.citation-line{display:block;margin-top:6px;font-size:9px;line-height:1.5;color:#587568}
+.chapters button[aria-pressed=true]{border-color:#70aa91;background:#e9f4ee;color:#145e49}
+.dof-guide{margin:12px 0 4px;padding:9px 10px;border:1px solid #e1e7de;border-radius:7px;background:#f8fbf8}
+.dof-guide b{display:block;font-size:10px;color:#3f6655}
+.dof-guide p{font-size:10px;color:#75877d;margin:5px 0}
+.dof-guide small{display:block;font-size:9px;line-height:1.5;color:#8a9c92}

@@ -8,7 +8,12 @@
       "title": "张闭口",
       "topics": ["张口肌", "闭口肌", "颞下颌关节"],
       "question": "张口和闭口分别由哪些肌群参与？",
-      "evidence": "模型观察：比较翼外肌下头与闭口肌群的兴奋变化。"
+      "evidence": "模型观察：比较翼外肌下头与闭口肌群的兴奋变化。",
+      "muscle_names": ["inferior_lateral_pterygoid_left", "inferior_lateral_pterygoid_right", "superficial_masseter_left"],
+      "citations": [
+        { "source_id": "oral_anatomy_8e", "pages": "110-111" },
+        { "source_id": "oral_biomechanics_yu", "pages": "14-20, 138-144" }
+      ]
     },
     {
       "id": "compound",
@@ -17,7 +22,11 @@
       "title": "小幅复合运动",
       "topics": ["下颌运动", "肌群协同"],
       "question": "为什么不能只凭单个肌肉数值判断运动方向？",
-      "evidence": "模型观察：同一时刻多个执行器的长度与力同时变化。"
+      "evidence": "模型观察：同一时刻多个执行器的长度与力同时变化。",
+      "muscle_names": ["anterior_temporalis_left", "anterior_temporalis_right", "deep_masseter_left"],
+      "citations": [
+        { "source_id": "oral_biomechanics_yu", "pages": "14-20" }
+      ]
     },
     {
       "id": "lateral-open",
@@ -26,7 +35,12 @@
       "title": "侧向伴张口",
       "topics": ["翼外肌", "双侧肌群协同", "关节约束"],
       "question": "侧向运动为何是多肌群与关节约束共同作用的结果？",
-      "evidence": "模型观察：左右同名肌肉的激活并不总是对称。"
+      "evidence": "模型观察：左右同名肌肉的激活并不总是对称。",
+      "muscle_names": ["superior_lateral_pterygoid_left", "inferior_lateral_pterygoid_right", "medial_temporalis_left"],
+      "citations": [
+        { "source_id": "oral_anatomy_8e", "pages": "103, 111" },
+        { "source_id": "oral_biomechanics_yu", "pages": "138-144, 151-152" }
+      ]
     }
   ]
 }
