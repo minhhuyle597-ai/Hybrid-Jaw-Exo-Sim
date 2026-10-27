@@ -8,6 +8,7 @@ import AnatomicalPlayer from './AnatomicalPlayer.jsx';
 import TextbookPanel from './TextbookPanel.jsx';
 import QuizPanel from './QuizPanel.jsx';
 import EvidenceBoard from './EvidenceBoard.jsx';
+import KnowledgeGraph from './KnowledgeGraph.jsx';
 const asset=p=>import.meta.env.BASE_URL+p;
 
 const groups={posterior_temporalis:['颞肌后束','颞肌'],medial_temporalis:['颞肌中束','颞肌'],anterior_temporalis:['颞肌前束','颞肌'],medial_pterygoid:['翼内肌','翼肌'],superior_lateral_pterygoid:['翼外肌上头','翼肌'],inferior_lateral_pterygoid:['翼外肌下头','翼肌'],superficial_masseter:['咬肌浅层','咬肌'],deep_masseter:['咬肌深层','咬肌'],geniohyoid:['颏舌骨肌','舌骨上肌群'],anterior_digastric:['二腹肌前腹','舌骨上肌群'],posterior_mylohyoid:['下颌舌骨肌后部','舌骨上肌群'],anterior_mylohyoid:['下颌舌骨肌前部','舌骨上肌群']};
@@ -30,7 +31,7 @@ function Plot({frames,selected,muscles,metric,dof,index,onSeek,unit}){
  return <div className="plot" ref={el} role="img" aria-label={`${unit} 时间序列，点击图表可定位视频`}/>;
 }
 function App(){
- const [data,setData]=useState(null),[error,setError]=useState(''),[selected,setSelected]=useState([12,13]),[filter,setFilter]=useState('全部'),[side,setSide]=useState('全部'),[query,setQuery]=useState(''),[topic,setTopic]=useState('全部'),[index,setIndex]=useState(0),[metric,setMetric]=useState('length_mm'),[dof,setDof]=useState(3),[playing,setPlaying]=useState(false),[rate,setRate]=useState(1),[busy,setBusy]=useState(true),[textbook,setTextbook]=useState(null),[phases,setPhases]=useState([]),[quiz,setQuiz]=useState([]),[evidence,setEvidence]=useState(null),[sourceCatalog,setSourceCatalog]=useState(null);
+ const [data,setData]=useState(null),[error,setError]=useState(''),[selected,setSelected]=useState([12,13]),[filter,setFilter]=useState('全部'),[side,setSide]=useState('全部'),[query,setQuery]=useState(''),[topic,setTopic]=useState('全部'),[index,setIndex]=useState(0),[metric,setMetric]=useState('length_mm'),[dof,setDof]=useState(3),[playing,setPlaying]=useState(false),[rate,setRate]=useState(1),[busy,setBusy]=useState(true),[textbook,setTextbook]=useState(null),[phases,setPhases]=useState([]),[quiz,setQuiz]=useState([]),[evidence,setEvidence]=useState(null),[sourceCatalog,setSourceCatalog]=useState(null),[viewMode,setViewMode]=useState('replay');
  const video=useRef(null);
  useEffect(()=>{
    const required=p=>fetch(asset(p)).then(r=>{if(!r.ok)throw Error('回放文件加载失败：'+r.status);return r.json();});
@@ -62,9 +63,11 @@ function App(){
  const selectGroup=name=>{const ids=muscles.filter(m=>textbookGroup(m)===name).map(m=>m.id);if(ids.length)setSelected(ids.slice(0,3));};
  const selectNames=names=>{const ids=(names||[]).map(name=>muscles.findIndex(m=>m.name===name)).filter(id=>id>=0);if(ids.length)setSelected(ids.slice(0,3));};
  const jumpPhase=p=>{video.current?.pause();seek(p.start_s);selectNames(p.muscle_names);};
+ const openGraphMuscle=id=>{setViewMode('replay');setTopic('全部');setSelected([id]);requestAnimationFrame(()=>document.querySelector('.player')?.scrollIntoView({behavior:'smooth',block:'start'}));};
+ const openGraphGroup=name=>{setViewMode('replay');setTopic('全部');selectGroup(name);requestAnimationFrame(()=>document.querySelector('.player')?.scrollIntoView({behavior:'smooth',block:'start'}));};
  const units={length_mm:'mm',signed_force_N:'N',excitation:'0–1',activation:'0–1',generalized_force:meta.dofs[dof].unit,moment_arm:dof>1?'mm':'m/m',incisal_mm:'mm'};
- return <><header><div className="brand"><span className="brand-icon">J</span><div><b>口颌肌骨实验室</b><small>JAW BIOMECHANICS · REPLAY LAB</small></div></div><span className="pill"><i/>仿真数据同步回放</span><a className="download" href={asset('data/muscles.csv')} download>↓ 导出全部数据</a></header>
- <main><div className="intro"><div><div className="eyebrow">HYBRID JAW EXO SIM / 方案 A</div><h1>看见下颌运动，读懂肌肉变化。</h1><p>同一次 MuJoCo 仿真 · 五个解剖观察方向 · 24 个肌肉执行器逐帧数据</p></div><div className="run-meta"><b>{meta.fps} FPS</b><span>{fmt(meta.duration_s,2)} s 记录</span><span>MuJoCo {meta.mujoco}</span></div></div>
+ return <><header><div className="brand"><span className="brand-icon">J</span><div><b>口颌肌骨实验室</b><small>JAW BIOMECHANICS · REPLAY LAB</small></div></div><span className="pill"><i/>仿真数据同步回放</span><a className="download" href={asset('data/muscles.csv')} download>↓ 导出全部数据</a><button className={'kg-toggle '+(viewMode==='graph'?'active':'')} onClick={()=>setViewMode(viewMode==='graph'?'replay':'graph')}>{viewMode==='graph'?'← 回到 3D 回放':'知识图谱'}</button></header>
+ {viewMode==='graph'?<KnowledgeGraph muscles={muscles} textbook={textbook} evidence={evidence} sourceCatalog={sourceCatalog} phases={phases} onOpenMuscle={openGraphMuscle} onOpenGroup={openGraphGroup} onBack={()=>setViewMode('replay')}/>:(<main><div className="intro"><div><div className="eyebrow">HYBRID JAW EXO SIM / 方案 A</div><h1>看见下颌运动，读懂肌肉变化。</h1><p>同一次 MuJoCo 仿真 · 五个解剖观察方向 · 24 个肌肉执行器逐帧数据</p></div><div className="run-meta"><b>{meta.fps} FPS</b><span>{fmt(meta.duration_s,2)} s 记录</span><span>MuJoCo {meta.mujoco}</span></div></div>
  <div className="workspace">
   <aside className="panel muscles">
    <div className="panel-title"><h2>结构导航</h2><span>{selected.length} / 3</span></div>
@@ -87,6 +90,6 @@ function App(){
  <EvidenceBoard evidence={evidence} sourceCatalog={sourceCatalog} onSelectGroup={selectGroup}/>
  <QuizPanel questions={quiz}/>
  <section className="evidence"><div><h3>数据与视频，同源可追溯</h3><p>官方 v0.1.0 刚体模型与肌肉参考轨迹，PID 离线运行。关闭四个外骨骼执行器的增益与偏置输出；骨骼与关节约束保留。五个视角来自同一状态记录，切换保留时间。肌肉路径、编号、标注与曲线颜色一致。</p><div className="links"><a href={asset('videos/views/front.mp4')} target="_blank">打开 MP4 ↗</a><a href={asset('data/frames.json')} download>逐帧 JSON ↓</a><a href={asset('data/states.npz')} download>原始状态 NPZ ↓</a><a href={asset('data/provenance.json')} target="_blank">参数与来源 ↗</a></div></div><div><h3>使用边界</h3><p>这是仿真数据同步回放，网页不在线求解物理。路径长度不是单独肌纤维长度，执行器力不是牙齿咬合力。本 demo 未验证患者生理准确性，未计算关节反作用力，原始颅骨网格有简化，肌肉以路径表示；不能当作完整解剖标本或临床依据。</p><a href={meta.upstream} target="_blank" rel="noreferrer">原项目 / Apache-2.0 ↗</a></div></section>
- <footer>AI 赋能口颌系统力学研究性学习 <span>本地演示 · 数据由 MuJoCo 计算</span></footer></main></>;
+ <footer>AI 赋能口颌系统力学研究性学习 <span>本地演示 · 数据由 MuJoCo 计算</span></footer></main>)}</>;
 }
 createRoot(document.getElementById('root')).render(<App/>);
