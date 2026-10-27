@@ -174,6 +174,11 @@ docs/                      解剖规范、数据和复现说明
 | [Hybrid Jaw Exo Sim](https://github.com/paulotto/hybrid-jaw-exo-sim) | 直接复用其模型、参考轨迹和控制器；是本项目物理依据 |
 | [MyoSuite](https://github.com/MyoHub/myosuite) | 肌骨仿真生态参考；README 的快速开始、模型版本和验证入口组织方式参考。未使用其模型或训练结果 |
 | [ArtiSynth](https://www.artisynth.org/) | 上游骨骼网格的历史来源之一，遵循上游 NOTICE 中的归属信息 |
+| [OMFAtlas](https://github.com/choxos/OMFAtlas) | 口腔颌面结构搜索、分层选择和教学导航的交互参考；未复制其解剖模型或牙科数据 |
+| [3Dentes](https://github.com/NateSaindon/3Dentes) | 结构清单、证据等级和来源追踪设计参考；未复制其 CBCT 模型或患者数据 |
+| [Human Atlas](https://github.com/slorksmo/Human-Atlas) | 大规模可搜索结构、图层控制和静态部署性能的界面参考；未复用其人体模型数据 |
+
+以下项目只进行过方案比较，未进入最终实现：[model-viewer](https://github.com/google/model-viewer)、[Three.js](https://github.com/mrdoob/three.js)、[Z-Anatomy](https://github.com/LluisV/Z-Anatomy)、[Cytoscape.js](https://github.com/cytoscape/cytoscape.js) 和 [markmap](https://github.com/markmap/markmap)。
 
 上游对应论文：P.-O. Müller and O. von Stryk, *Design and Modeling of a Novel Active Hybrid Exoskeleton for Jaw Motion Assistance*, IEEE BioRob 2026。请引用上游 [CITATION 文件](https://github.com/paulotto/hybrid-jaw-exo-sim/blob/v0.1.0/CITATION.cff)，并在使用本展示层时注明本仓库和实际使用的提交版本。
 
