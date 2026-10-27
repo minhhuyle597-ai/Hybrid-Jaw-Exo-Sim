@@ -1,0 +1,30 @@
+.teaching .code{margin:0 0 4px}
+.textbook-cite,.teaching-block{padding:12px 0;border-top:1px solid #edf0e9}
+.textbook-cite b,.teaching-block b{display:block;font-size:10px;color:#6f8378;margin-bottom:7px;font-weight:650}
+.textbook-cite span{display:block;font-size:12px;color:#38544b;margin-top:5px}
+.teaching-block p{font-size:11px;color:#4d6359;margin:0}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.chip{font-size:10px;color:#276455;background:#eaf4ee;border-radius:20px;padding:5px 9px}
+.phase{background:#f7f8f3;border-radius:8px;padding:11px;margin-top:12px}
+.phase b{color:#9a7130}
+.phase p{color:#735b33}
+.evidence-badge{display:inline-block;margin-top:13px;font-size:10px;padding:6px 10px;border-radius:6px}
+.evidence-badge[data-level=textbook_confirmed]{background:#e4f3e7;color:#26704c}
+.evidence-badge[data-level=reference_confirmed]{background:#e8f0fb;color:#35649e}
+.evidence-badge[data-level=pending]{background:#fcf4e7;color:#a27d42}
+.evidence-badge[data-level=model_simplification]{background:#f1f1f5;color:#6f5f8a}
+.source-list{display:flex;flex-direction:column;gap:8px;margin-top:15px}
+.source-list a{font-size:10px;line-height:1.5}
+
+.quiz-panel{margin-top:20px;padding-bottom:8px}
+.quiz-list{padding:0 18px 18px}
+.quiz-item{padding:14px 0;border-bottom:1px solid #edf0e9}
+.quiz-item:last-child{border-bottom:0}
+.quiz-prompt{font-size:12px;color:#38544b;margin:0 0 9px}
+.quiz-options{display:flex;flex-wrap:wrap;gap:7px}
+.quiz-option{font-size:11px;padding:7px 10px}
+.quiz-option.chosen{border-color:#d5a94f;background:#fcf4e7}
+.quiz-option.correct{border-color:#2e8a68;background:#e4f3e7;color:#205f47}
+.quiz-explanation{font-size:11px;color:#7c8b81;margin:9px 0 0}
+
+@media(max-width:720px){.quiz-options{flex-direction:column}.quiz-option{width:100%;text-align:left}}
