@@ -18,6 +18,7 @@ const priorityLabels = {
 export default function EvidenceBoard({ evidence, sourceCatalog, onSelectGroup }) {
   if (!evidence) return null;
   const sources = sourceCatalog?.sources || [];
+  const sourceMap = new Map(sources.map((source) => [source.id, source]));
   const groups = Object.entries(evidence.groups || {});
 
   return (
@@ -58,7 +59,7 @@ export default function EvidenceBoard({ evidence, sourceCatalog, onSelectGroup }
                 <th>待核对结论</th>
                 <th>证据状态</th>
                 <th>教材状态</th>
-                <th>来源</th>
+                <th>教材页码</th>
               </tr>
             </thead>
             <tbody>
@@ -74,7 +75,14 @@ export default function EvidenceBoard({ evidence, sourceCatalog, onSelectGroup }
                       <td>{claim.statement}</td>
                       <td><span className="evidence-badge" data-level={claim.support_level}>{labels[claim.support_level] || claim.support_level}</span></td>
                       <td>{labels[group.textbook_status] || group.textbook_status}</td>
-                      <td>{(claim.source_ids || []).length} 本</td>
+                      <td>
+                        {(claim.citations || []).length > 0
+                          ? claim.citations.map((citation) => {
+                            const source = sourceMap.get(citation.source_id);
+                            return `${source?.title || citation.source_id} · ${citation.pages}`;
+                          }).join('；')
+                          : '模型定义'}
+                      </td>
                     </tr>
                   ))}
                 </React.Fragment>

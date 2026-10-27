@@ -96,10 +96,40 @@
     "anterior_mylohyoid_right": { "group": "下颌舌骨肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (2) 下颌舌骨肌", "page": "118" }, "textbook_status": "textbook_confirmed" }
   },
   "dofs": {
-    "_tmj_slide_xz": { "label": "颞下颌关节前后/内外滑动", "kind": "translation", "note": "模型中的平移广义坐标，不等同于真实关节盘滑动。" },
-    "_tmj_slide_y": { "label": "颞下颌关节左右滑动", "kind": "translation", "note": "模型平移自由度，具体解剖对应需教材核验。" },
-    "_tmj_hinge_x": { "label": "铰链旋转自由度 X", "kind": "rotation", "note": "模型旋转自由度，正负依赖坐标约定。" },
-    "_tmj_hinge_y": { "label": "铰链旋转自由度 Y", "kind": "rotation", "note": "模型旋转自由度，正负依赖坐标约定。" },
-    "_tmj_hinge_z": { "label": "铰链旋转自由度 Z", "kind": "rotation", "note": "模型旋转自由度，正负依赖坐标约定。" }
+    "_tmj_slide_xz": {
+      "label": "颞下颌关节前后/内外滑动",
+      "kind": "translation",
+      "note": "模型中的平移广义坐标，不等同于真实关节盘滑动。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "14-20, 138-144", "chapter": "第二章 口腔生物力学的基本概念和定义；第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_slide_y": {
+      "label": "颞下颌关节左右滑动",
+      "kind": "translation",
+      "note": "模型平移自由度，具体解剖对应需教材核验。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "14-20, 138-144", "chapter": "第二章 口腔生物力学的基本概念和定义；第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_hinge_x": {
+      "label": "铰链旋转自由度 X",
+      "kind": "rotation",
+      "note": "模型旋转自由度，正负依赖坐标约定。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "138-144, 151-152", "chapter": "第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_hinge_y": {
+      "label": "铰链旋转自由度 Y",
+      "kind": "rotation",
+      "note": "模型旋转自由度，正负依赖坐标约定。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "138-144, 151-152", "chapter": "第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_hinge_z": {
+      "label": "铰链旋转自由度 Z",
+      "kind": "rotation",
+      "note": "模型旋转自由度，正负依赖坐标约定。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "138-144, 151-152", "chapter": "第五章 口腔天然器官生物力学" }
+    }
   }
 }

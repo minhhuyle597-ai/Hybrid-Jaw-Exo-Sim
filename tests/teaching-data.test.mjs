@@ -44,12 +44,40 @@ test('evidence source ids resolve to the source catalog', () => {
   }
 });
 
+test('all textbook claims include page locators unless explicitly model-defined', () => {
+  for (const group of Object.values(evidence.groups)) {
+    for (const claim of group.claims || []) {
+      if (claim.support_level === 'model_assumption') continue;
+      assert.ok(claim.citations?.length > 0, `${claim.statement} has no page citation`);
+      for (const citation of claim.citations) {
+        assert.ok(sourceIds.has(citation.source_id), `unknown citation source: ${citation.source_id}`);
+        assert.ok(citation.pages, `${claim.statement} has no page value`);
+      }
+    }
+  }
+});
+
+test('all five model DOFs are linked to a biomechanics textbook page', () => {
+  const dofs = Object.entries(textbook.dofs);
+  assert.equal(dofs.length, 5);
+  for (const [name, guide] of dofs) {
+    assert.equal(guide.textbook_status, 'model_assumption');
+    assert.ok(sourceIds.has(guide.textbook_ref?.source_id), `${name} has unknown source`);
+    assert.ok(guide.textbook_ref?.pages, `${name} has no page range`);
+  }
+});
+
 test('teaching phases are ordered and cover the recorded duration', () => {
   const ordered = [...phases.phases].sort((a, b) => a.start_s - b.start_s);
   assert.equal(ordered[0].start_s, 0);
   assert.ok(Math.abs(ordered.at(-1).end_s - views.frame_count / views.fps) < 0.05);
   for (let i = 1; i < ordered.length; i += 1) {
     assert.ok(ordered[i].start_s <= ordered[i - 1].end_s, 'teaching phases overlap or leave a gap');
+  }
+  for (const phase of ordered) {
+    assert.ok(phase.muscle_names?.length > 0, `${phase.id} has no linked muscles`);
+    for (const name of phase.muscle_names) assert.ok(muscleNames.has(name), `${phase.id} has unknown muscle ${name}`);
+    assert.ok(phase.citations?.length > 0, `${phase.id} has no textbook citation`);
   }
 });
 
