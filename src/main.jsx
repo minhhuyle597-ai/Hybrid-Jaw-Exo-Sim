@@ -7,6 +7,7 @@ import './teaching.css';
 import AnatomicalPlayer from './AnatomicalPlayer.jsx';
 import TextbookPanel from './TextbookPanel.jsx';
 import QuizPanel from './QuizPanel.jsx';
+import EvidenceBoard from './EvidenceBoard.jsx';
 const asset=p=>import.meta.env.BASE_URL+p;
 
 const groups={posterior_temporalis:['颞肌后束','颞肌'],medial_temporalis:['颞肌中束','颞肌'],anterior_temporalis:['颞肌前束','颞肌'],medial_pterygoid:['翼内肌','翼肌'],superior_lateral_pterygoid:['翼外肌上头','翼肌'],inferior_lateral_pterygoid:['翼外肌下头','翼肌'],superficial_masseter:['咬肌浅层','咬肌'],deep_masseter:['咬肌深层','咬肌'],geniohyoid:['颏舌骨肌','舌骨上肌群'],anterior_digastric:['二腹肌前腹','舌骨上肌群'],posterior_mylohyoid:['下颌舌骨肌后部','舌骨上肌群'],anterior_mylohyoid:['下颌舌骨肌前部','舌骨上肌群']};
@@ -29,25 +30,57 @@ function Plot({frames,selected,muscles,metric,dof,index,onSeek,unit}){
  return <div className="plot" ref={el} role="img" aria-label={`${unit} 时间序列，点击图表可定位视频`}/>;
 }
 function App(){
- const [data,setData]=useState(null),[error,setError]=useState(''),[selected,setSelected]=useState([12,13]),[filter,setFilter]=useState('全部'),[side,setSide]=useState('全部'),[index,setIndex]=useState(0),[metric,setMetric]=useState('length_mm'),[dof,setDof]=useState(3),[playing,setPlaying]=useState(false),[rate,setRate]=useState(1),[busy,setBusy]=useState(true),[textbook,setTextbook]=useState(null),[phases,setPhases]=useState([]),[quiz,setQuiz]=useState([]);
+ const [data,setData]=useState(null),[error,setError]=useState(''),[selected,setSelected]=useState([12,13]),[filter,setFilter]=useState('全部'),[side,setSide]=useState('全部'),[query,setQuery]=useState(''),[topic,setTopic]=useState('全部'),[index,setIndex]=useState(0),[metric,setMetric]=useState('length_mm'),[dof,setDof]=useState(3),[playing,setPlaying]=useState(false),[rate,setRate]=useState(1),[busy,setBusy]=useState(true),[textbook,setTextbook]=useState(null),[phases,setPhases]=useState([]),[quiz,setQuiz]=useState([]),[evidence,setEvidence]=useState(null),[sourceCatalog,setSourceCatalog]=useState(null);
  const video=useRef(null);
- useEffect(()=>{Promise.all(['data/frames.json','data/views.json','data/textbook.json','data/teaching-phases.json','data/quiz.json'].map(p=>fetch(asset(p)).then(r=>{if(!r.ok)throw Error('回放文件加载失败：'+r.status);return r.json();}))).then(([d,manifest,tb,ph,qz])=>{if(manifest.muscles.length!==24||d.frames.length!==manifest.frame_count)throw Error('数据与视角帧数不匹配');setData({...d,manifest});setTextbook(tb);setPhases(ph.phases||[]);setQuiz(qz.questions||[]);}).catch(e=>setError(e.message));},[]);
+ useEffect(()=>{
+   const required=p=>fetch(asset(p)).then(r=>{if(!r.ok)throw Error('回放文件加载失败：'+r.status);return r.json();});
+   const optional=(p,fallback)=>fetch(asset(p)).then(r=>r.ok?r.json():fallback).catch(()=>fallback);
+   Promise.all([
+     required('data/frames.json'),
+     required('data/views.json'),
+     optional('data/textbook.json',null),
+     optional('data/teaching-phases.json',{phases:[]}),
+     optional('data/quiz.json',{questions:[]}),
+     optional('data/evidence.json',null),
+     optional('data/source_catalog.json',{sources:[]})
+   ]).then(([d,manifest,tb,ph,qz,ev,sc])=>{
+     if(manifest.muscles.length!==24||d.frames.length!==manifest.frame_count)throw Error('数据与视角帧数不匹配');
+     setData({...d,manifest});setTextbook(tb);setPhases(ph.phases||[]);setQuiz(qz.questions||[]);setEvidence(ev);setSourceCatalog(sc);
+   }).catch(e=>setError(e.message));
+ },[]);
  if(error)return <main className="error"><h1>无法打开回放</h1><p>{error}</p><p>请使用项目中的“启动演示.cmd”启动本地服务。</p></main>;
  if(!data)return <main className="loading">正在加载同源仿真数据…</main>;
  const {frames,meta,manifest}=data,muscles=manifest.muscles.map(names),f=frames[index],primary=muscles[selected[0]],p=selected[0];
  const phase=phases.find(x=>f.time_s>=x.start_s&&f.time_s<x.end_s)||phases[phases.length-1];
+ const topicDef=evidence?.topics?.find(x=>x.id===topic);
+ const textbookGroup=m=>textbook?.muscles?.[m.name]?.group||m.group;
+ const visibleMuscles=muscles.filter(m=>(filter==='全部'||m.group===filter||textbookGroup(m)===filter)&&(side==='全部'||m.label.startsWith(side))&&(!topicDef||topicDef.groups.includes(textbookGroup(m)))&&(!query.trim()||`${m.code} ${m.label} ${m.name}`.toLowerCase().includes(query.trim().toLowerCase())));
  const seek=t=>{video.current.currentTime=Math.max(0,Math.min(frames.at(-1).time_s,t));setIndex(frameIndex(t,meta.fps,frames.length));};
  const toggle=id=>setSelected(old=>old.includes(id)?old.length===1?old:old.filter(i=>i!==id):old.length<3?[...old,id]:[...old.slice(1),id]);
+ const selectGroup=name=>{const ids=muscles.filter(m=>textbookGroup(m)===name).map(m=>m.id);if(ids.length)setSelected(ids.slice(0,3));};
  const units={length_mm:'mm',signed_force_N:'N',excitation:'0–1',activation:'0–1',generalized_force:meta.dofs[dof].unit,moment_arm:dof>1?'mm':'m/m',incisal_mm:'mm'};
  return <><header><div className="brand"><span className="brand-icon">J</span><div><b>口颌肌骨实验室</b><small>JAW BIOMECHANICS · REPLAY LAB</small></div></div><span className="pill"><i/>仿真数据同步回放</span><a className="download" href={asset('data/muscles.csv')} download>↓ 导出全部数据</a></header>
  <main><div className="intro"><div><div className="eyebrow">HYBRID JAW EXO SIM / 方案 A</div><h1>看见下颌运动，读懂肌肉变化。</h1><p>同一次 MuJoCo 仿真 · 五个解剖观察方向 · 24 个肌肉执行器逐帧数据</p></div><div className="run-meta"><b>{meta.fps} FPS</b><span>{fmt(meta.duration_s,2)} s 记录</span><span>MuJoCo {meta.mujoco}</span></div></div>
- <div className="workspace"><aside className="panel muscles"><div className="panel-title"><h2>肌肉选择</h2><span>{selected.length} / 3</span></div><p className="hint">可比较 1–3 个执行器；点击已选项取消。</p><div className="filters"><select aria-label="肌群筛选" value={filter} onChange={e=>setFilter(e.target.value)}>{['全部','咬肌','颞肌','翼肌','舌骨上肌群'].map(x=><option key={x}>{x}</option>)}</select><select aria-label="左右侧筛选" value={side} onChange={e=>setSide(e.target.value)}>{['全部','左侧','右侧'].map(x=><option key={x}>{x}</option>)}</select></div><div className="muscle-list">{muscles.filter(m=>(filter==='全部'||m.group===filter)&&(side==='全部'||m.label.startsWith(side))).map(m=><button key={m.id} aria-pressed={selected.includes(m.id)} onClick={()=>toggle(m.id)} className={'muscle '+(selected.includes(m.id)?'selected':'')}><span className="check" style={{background:m.color}}>{selected.includes(m.id)?'✓':''}</span><span>{m.code} {m.label}<small>{m.name}</small></span></button>)}</div></aside>
+ <div className="workspace">
+  <aside className="panel muscles">
+   <div className="panel-title"><h2>结构导航</h2><span>{selected.length} / 3</span></div>
+   <p className="hint">按编号、中文名或英文名搜索；可比较 1–3 个执行器。</p>
+   <label className="search-box"><span>搜索结构</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="例如 M13 / 咬肌 / masseter"/></label>
+   <div className="topic-tabs">
+    <button aria-pressed={topic==='全部'} onClick={()=>setTopic('全部')}>全部</button>
+    {(evidence?.topics||[]).map(t=><button key={t.id} aria-pressed={topic===t.id} onClick={()=>setTopic(t.id)}>{t.label}</button>)}
+   </div>
+   <div className="filters"><select aria-label="肌群筛选" value={filter} onChange={e=>setFilter(e.target.value)}>{['全部','咬肌','颞肌','翼肌','舌骨上肌群'].map(x=><option key={x}>{x}</option>)}</select><select aria-label="左右侧筛选" value={side} onChange={e=>setSide(e.target.value)}>{['全部','左侧','右侧'].map(x=><option key={x}>{x}</option>)}</select></div>
+   <div className="filter-note">显示 {visibleMuscles.length} / {muscles.length} 个模型执行器</div>
+   <div className="muscle-list">{visibleMuscles.map(m=><button key={m.id} aria-pressed={selected.includes(m.id)} onClick={()=>toggle(m.id)} className={'muscle '+(selected.includes(m.id)?'selected':'')}><span className="check" style={{background:m.color}}>{selected.includes(m.id)?'✓':''}</span><span>{m.code} {m.label}<small>{m.name}</small></span></button>)}</div>
+  </aside>
  <section className="center"><div className="panel player"><div className="panel-title"><h2>参考运动 · 肌肉驱动</h2><span className="tag">离线计算 / 同步回放</span></div><AnatomicalPlayer manifest={manifest} videoRef={video} index={index} onFrame={setIndex} onPlaying={setPlaying} onError={setError} selected={selected} onSelect={setSelected} rate={rate} onBusy={setBusy}/>
  <div className="chapters"><span>观察片段</span><button disabled={busy} onClick={()=>seek(0)}>张闭口 · 0–9 s</button><button disabled={busy} onClick={()=>seek(9)}>小幅复合运动 · 9–16 s</button><button disabled={busy} onClick={()=>seek(16)}>侧向伴张口 · 16–21.4 s</button></div><div className="transport"><button disabled={busy} className="primary" onClick={()=>playing?video.current.pause():video.current.play().catch(e=>setError(e.message))}>{playing?'Ⅱ 暂停':'▶ 播放'}</button><button disabled={busy} aria-label="上一帧" onClick={()=>{video.current.pause();seek(seekTime(index-1,meta.fps,frames.length));}}>← 帧</button><button disabled={busy} aria-label="下一帧" onClick={()=>{video.current.pause();seek(seekTime(index+1,meta.fps,frames.length));}}>帧 →</button><select aria-label="播放速度" value={rate} onChange={e=>{setRate(+e.target.value);video.current.playbackRate=+e.target.value;}}>{[.25,.5,1,1.5,2].map(x=><option key={x} value={x}>{x}×</option>)}</select><strong className="time" data-testid="time">{fmt(f.time_s,2)} <small>/ {fmt(meta.duration_s,2)} s</small></strong></div><input disabled={busy} className="timeline" aria-label="回放时间轴" type="range" min="0" max={frames.length-1} step="1" value={index} onChange={e=>seek(+e.target.value/meta.fps)}/><div className="live-strip">{selected.map((id,k)=><div key={id} style={{borderLeftColor:muscles[id].color}}><b>{muscles[id].code} {muscles[id].label}</b><span>{fmt(f.length_mm[id],2)} mm</span><span>{fmt(f.signed_force_N[id],2)} N</span><span>{fmt(f.generalized_force[id][dof],3)} {meta.dofs[dof].unit}</span></div>)}</div><div className="video-note"><span>固定配色：肌肉路径　绿色：韧带</span><span>帧 {index+1} / {frames.length}</span></div></div>
  <div className="panel chart-panel"><div className="panel-title"><h2>肌肉与运动时间序列</h2><small>点击曲线区域定位视频</small></div><div className="chart-controls"><select aria-label="曲线指标" value={metric} onChange={e=>setMetric(e.target.value)}>{Object.entries({length_mm:'肌腱路径长度',signed_force_N:'执行器力（带符号）',excitation:'兴奋输入',activation:'激活状态',generalized_force:'力矩 / 广义力',moment_arm:'传动力臂 / 雅可比',incisal_mm:'切牙位移 XYZ'}).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select><select aria-label="关节自由度" value={dof} onChange={e=>setDof(+e.target.value)}>{meta.dofs.map((j,i)=><option key={j.name} value={i}>{j.name.replace('_tmj_','')} · {j.unit}</option>)}</select></div><Plot frames={frames} selected={selected} muscles={muscles} metric={metric} dof={dof} index={index} onSeek={seek} unit={units[metric]}/></div></section>
  <aside className="right"><div className="panel values"><div className="eyebrow">当前首选肌肉</div><h2>{primary.label}</h2><p className="code">{primary.name}</p><div className="stat"><span>肌腱路径长度</span><strong data-testid="length">{fmt(f.length_mm[p],2)}<small>mm</small></strong></div><div className="stat"><span>执行器力 · 带符号</span><strong>{fmt(f.signed_force_N[p],2)}<small>N</small></strong></div><div className="stat"><span>{meta.dofs[dof].type==='rotation'?'力矩贡献':'广义力贡献'} · {meta.dofs[dof].name.replace('_tmj_','')}</span><strong>{fmt(f.generalized_force[p][dof],4)}<small>{meta.dofs[dof].unit}</small></strong></div><div className="activation"><span>兴奋输入 u <b>{fmt(f.excitation[p])}</b></span><progress value={f.excitation[p]} max="1"/><span>激活状态 a <b>{fmt(f.activation[p])}</b></span><progress value={f.activation[p]} max="1"/></div><div className="displacement"><b>切牙相对起点位移</b><p>{['X','Y','Z'].map((x,i)=><span key={x}>{x} {fmt(f.incisal_mm[i]-frames[0].incisal_mm[i],2)} mm</span>)}</p></div></div>
- <TextbookPanel muscle={primary} textbook={textbook} phase={phase}/></aside></div>
+ <TextbookPanel muscle={primary} textbook={textbook} evidence={evidence} sourceCatalog={sourceCatalog} phase={phase} onSelectGroup={selectGroup}/></aside></div>
  <section className="panel all-data"><details><summary>查看全部 24 个肌肉执行器 · 当前帧数据</summary><div className="table-wrap"><table><thead><tr><th>肌肉</th><th>兴奋输入</th><th>激活</th><th>路径长 mm</th><th>力 N</th><th>{meta.dofs[dof].name} {meta.dofs[dof].unit}</th></tr></thead><tbody>{muscles.map((m,i)=><tr key={m.id} onClick={()=>setSelected([i])}><td>{m.label}</td><td>{fmt(f.excitation[i])}</td><td>{fmt(f.activation[i])}</td><td>{fmt(f.length_mm[i],2)}</td><td>{fmt(f.signed_force_N[i],2)}</td><td>{fmt(f.generalized_force[i][dof],4)}</td></tr>)}</tbody></table></div></details></section>
+ <EvidenceBoard evidence={evidence} sourceCatalog={sourceCatalog} onSelectGroup={selectGroup}/>
  <QuizPanel questions={quiz}/>
  <section className="evidence"><div><h3>数据与视频，同源可追溯</h3><p>官方 v0.1.0 刚体模型与肌肉参考轨迹，PID 离线运行。关闭四个外骨骼执行器的增益与偏置输出；骨骼与关节约束保留。五个视角来自同一状态记录，切换保留时间。肌肉路径、编号、标注与曲线颜色一致。</p><div className="links"><a href={asset('videos/views/front.mp4')} target="_blank">打开 MP4 ↗</a><a href={asset('data/frames.json')} download>逐帧 JSON ↓</a><a href={asset('data/states.npz')} download>原始状态 NPZ ↓</a><a href={asset('data/provenance.json')} target="_blank">参数与来源 ↗</a></div></div><div><h3>使用边界</h3><p>这是仿真数据同步回放，网页不在线求解物理。路径长度不是单独肌纤维长度，执行器力不是牙齿咬合力。本 demo 未验证患者生理准确性，未计算关节反作用力，原始颅骨网格有简化，肌肉以路径表示；不能当作完整解剖标本或临床依据。</p><a href={meta.upstream} target="_blank" rel="noreferrer">原项目 / Apache-2.0 ↗</a></div></section>
  <footer>AI 赋能口颌系统力学研究性学习 <span>本地演示 · 数据由 MuJoCo 计算</span></footer></main></>;

@@ -28,3 +28,33 @@
 .quiz-explanation{font-size:11px;color:#7c8b81;margin:9px 0 0}
 
 @media(max-width:720px){.quiz-options{flex-direction:column}.quiz-option{width:100%;text-align:left}}
+
+.search-box{display:block;margin:0 13px 10px}
+.search-box span{display:block;font-size:10px;color:#7d9084;margin-bottom:5px}
+.search-box input{width:100%;border:1px solid #d9e3dc;border-radius:7px;padding:8px 9px;font:inherit;font-size:11px;color:#38544b;background:#fff}
+.topic-tabs{display:flex;flex-wrap:wrap;gap:5px;padding:0 13px 10px}
+.topic-tabs button{font-size:10px;padding:5px 7px;background:#f7f9f4}
+.topic-tabs button[aria-pressed=true]{border-color:#70aa91;background:#e9f4ee;color:#145e49}
+.filter-note{padding:0 14px 8px;color:#99a59e;font-size:9px}
+.evidence-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.evidence-badge[data-level=textbook_pending]{background:#fcf4e7;color:#a27d42}
+.evidence-badge[data-level=contested]{background:#fbe9e5;color:#a04b36}
+.claim-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.claim-list li{background:#f7f9f4;border-radius:6px;padding:8px;font-size:10px;color:#4b6157;line-height:1.55}
+.claim-list small{display:block;margin-top:4px;color:#83938a}
+.chip-button{border:1px solid #cfe0d5;cursor:pointer;font:inherit}
+.source-cards{display:flex;flex-direction:column;gap:7px}
+.source-card{display:flex;flex-direction:column;gap:3px;border:1px solid #e1e7de;border-radius:7px;padding:9px;background:#fbfcfa}
+.source-card strong{font-size:11px;color:#315e4e}
+.source-card span{font-size:9px;color:#7b8d83}
+.source-card small{font-size:9px;color:#96a39b}
+.evidence-board{margin-top:20px;padding-bottom:10px}
+.evidence-board details{padding:0 18px 16px}
+.source-groups{display:grid;gap:15px;margin-top:14px}
+.source-group h3,.boundary-list h3{font-size:12px;color:#3c6654;margin:0 0 8px}
+.source-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:8px}
+.evidence-table-wrap{max-height:480px;margin-top:18px}
+.evidence-table-wrap td{vertical-align:top;font-size:11px}
+.link-button{border:0;background:none;color:#087e74;padding:0;text-align:left;font-size:11px}
+.boundary-list{margin-top:18px;padding:12px;background:#f8f6ee;border-radius:7px}
+.boundary-list p{font-size:10px;color:#766b51;margin:5px 0}
