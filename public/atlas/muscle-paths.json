@@ -1,0 +1,412 @@
+{
+  "paths": [
+    {
+      "structure_id": "muscle.temporalis.left",
+      "actuator_name": "posterior_temporalis_left",
+      "points": [
+        [
+          0.072731,
+          -0.038848,
+          0.002376
+        ],
+        [
+          0.049587048,
+          -0.073150502,
+          0.049626846
+        ]
+      ],
+      "color": "#6f4dbb"
+    },
+    {
+      "structure_id": "muscle.temporalis.left",
+      "actuator_name": "medial_temporalis_left",
+      "points": [
+        [
+          0.073781,
+          -0.006373,
+          0.021236
+        ],
+        [
+          0.049507219,
+          -0.072837012,
+          0.05079857
+        ]
+      ],
+      "color": "#445fc3"
+    },
+    {
+      "structure_id": "muscle.temporalis.left",
+      "actuator_name": "anterior_temporalis_left",
+      "points": [
+        [
+          0.057529,
+          -0.013507,
+          0.061659
+        ],
+        [
+          0.039218047,
+          -0.096292095,
+          0.044471261
+        ]
+      ],
+      "color": "#247bb5"
+    },
+    {
+      "structure_id": "muscle.temporalis.right",
+      "actuator_name": "posterior_temporalis_right",
+      "points": [
+        [
+          -0.074369,
+          -0.038443,
+          0.001848
+        ],
+        [
+          -0.045402951,
+          -0.073158164,
+          0.049642815
+        ]
+      ],
+      "color": "#9c78dc"
+    },
+    {
+      "structure_id": "muscle.temporalis.right",
+      "actuator_name": "medial_temporalis_right",
+      "points": [
+        [
+          -0.073707,
+          -0.006364,
+          0.020857
+        ],
+        [
+          -0.045321779,
+          -0.072844661,
+          0.050814512
+        ]
+      ],
+      "color": "#7c94ef"
+    },
+    {
+      "structure_id": "muscle.temporalis.right",
+      "actuator_name": "anterior_temporalis_right",
+      "points": [
+        [
+          -0.057329,
+          -0.013929,
+          0.061392
+        ],
+        [
+          -0.035031951,
+          -0.096298085,
+          0.044483743
+        ]
+      ],
+      "color": "#64b5df"
+    },
+    {
+      "structure_id": "muscle.medial_pterygoid.left",
+      "actuator_name": "medial_pterygoid_left",
+      "points": [
+        [
+          0.021974,
+          -0.077632,
+          0.040484
+        ],
+        [
+          0.043652975,
+          -0.123532169,
+          0.030967973
+        ]
+      ],
+      "color": "#008f83"
+    },
+    {
+      "structure_id": "muscle.medial_pterygoid.right",
+      "actuator_name": "medial_pterygoid_right",
+      "points": [
+        [
+          -0.022103,
+          -0.077597,
+          0.040239
+        ],
+        [
+          -0.039467024,
+          -0.123538874,
+          0.030981946
+        ]
+      ],
+      "color": "#4fbbab"
+    },
+    {
+      "structure_id": "muscle.lateral_pterygoid.left",
+      "actuator_name": "superior_lateral_pterygoid_left",
+      "points": [
+        [
+          0.044195,
+          -0.064302,
+          0.039071
+        ],
+        [
+          0.050206082,
+          -0.074032525,
+          0.019668178
+        ]
+      ],
+      "color": "#ac650b"
+    },
+    {
+      "structure_id": "muscle.lateral_pterygoid.left",
+      "actuator_name": "inferior_lateral_pterygoid_left",
+      "points": [
+        [
+          0.023773,
+          -0.073359,
+          0.039066
+        ],
+        [
+          0.051038272,
+          -0.075540913,
+          0.020073276
+        ]
+      ],
+      "color": "#bf4b18"
+    },
+    {
+      "structure_id": "muscle.lateral_pterygoid.right",
+      "actuator_name": "superior_lateral_pterygoid_right",
+      "points": [
+        [
+          -0.044585,
+          -0.064435,
+          0.039106
+        ],
+        [
+          -0.046031916,
+          -0.074040289,
+          0.019684357
+        ]
+      ],
+      "color": "#e4a539"
+    },
+    {
+      "structure_id": "muscle.lateral_pterygoid.right",
+      "actuator_name": "inferior_lateral_pterygoid_right",
+      "points": [
+        [
+          -0.023643,
+          -0.073492,
+          0.038599
+        ],
+        [
+          -0.046863726,
+          -0.07554881,
+          0.020089734
+        ]
+      ],
+      "color": "#eb8752"
+    },
+    {
+      "structure_id": "muscle.masseter.left",
+      "actuator_name": "superficial_masseter_left",
+      "points": [
+        [
+          0.057321,
+          -0.079778,
+          0.05595
+        ],
+        [
+          0.04944692,
+          -0.123726641,
+          0.030545697
+        ]
+      ],
+      "color": "#bd234c"
+    },
+    {
+      "structure_id": "muscle.masseter.left",
+      "actuator_name": "deep_masseter_left",
+      "points": [
+        [
+          0.062619,
+          -0.072225,
+          0.041421
+        ],
+        [
+          0.048537577,
+          -0.09845808,
+          0.034683175
+        ]
+      ],
+      "color": "#a72b86"
+    },
+    {
+      "structure_id": "muscle.masseter.right",
+      "actuator_name": "superficial_masseter_right",
+      "points": [
+        [
+          -0.056699,
+          -0.07979,
+          0.055691
+        ],
+        [
+          -0.045261079,
+          -0.123734281,
+          0.030561618
+        ]
+      ],
+      "color": "#ec6483"
+    },
+    {
+      "structure_id": "muscle.masseter.right",
+      "actuator_name": "deep_masseter_right",
+      "points": [
+        [
+          -0.062581,
+          -0.072245,
+          0.041206
+        ],
+        [
+          -0.044354422,
+          -0.098465574,
+          0.034698792
+        ]
+      ],
+      "color": "#d77cbd"
+    },
+    {
+      "structure_id": "muscle.geniohyoid.left",
+      "actuator_name": "geniohyoid_left",
+      "points": [
+        [
+          0.001795,
+          -0.146889,
+          0.047506
+        ],
+        [
+          0.004584064,
+          -0.138330244,
+          0.083886669
+        ]
+      ],
+      "color": "#4c7133"
+    },
+    {
+      "structure_id": "muscle.geniohyoid.right",
+      "actuator_name": "geniohyoid_right",
+      "points": [
+        [
+          -0.001868,
+          -0.147,
+          0.047493
+        ],
+        [
+          -0.000377936,
+          -0.138330645,
+          0.083887503
+        ]
+      ],
+      "color": "#8ba75c"
+    },
+    {
+      "structure_id": "muscle.digastric_anterior_belly.left",
+      "actuator_name": "anterior_digastric_left",
+      "points": [
+        [
+          0.014645,
+          -0.145468,
+          0.043049
+        ],
+        [
+          0.009484469,
+          -0.141062696,
+          0.084983356
+        ]
+      ],
+      "color": "#077eab"
+    },
+    {
+      "structure_id": "muscle.digastric_anterior_belly.right",
+      "actuator_name": "anterior_digastric_right",
+      "points": [
+        [
+          -0.014592,
+          -0.145468,
+          0.043049
+        ],
+        [
+          -0.004645529,
+          -0.140964045,
+          0.085041335
+        ]
+      ],
+      "color": "#47accf"
+    },
+    {
+      "structure_id": "muscle.mylohyoid.left",
+      "actuator_name": "posterior_mylohyoid_left",
+      "points": [
+        [
+          0.014947,
+          -0.14533,
+          0.042443
+        ],
+        [
+          0.030549854,
+          -0.121143237,
+          0.049241395
+        ]
+      ],
+      "color": "#695149"
+    },
+    {
+      "structure_id": "muscle.mylohyoid.left",
+      "actuator_name": "anterior_mylohyoid_left",
+      "points": [
+        [
+          0.002094,
+          -0.148097,
+          0.048461
+        ],
+        [
+          0.022255504,
+          -0.13470396,
+          0.070398429
+        ]
+      ],
+      "color": "#9c6032"
+    },
+    {
+      "structure_id": "muscle.mylohyoid.right",
+      "actuator_name": "posterior_mylohyoid_right",
+      "points": [
+        [
+          -0.014822,
+          -0.145319,
+          0.042447
+        ],
+        [
+          -0.026357145,
+          -0.121147828,
+          0.049250962
+        ]
+      ],
+      "color": "#a18575"
+    },
+    {
+      "structure_id": "muscle.mylohyoid.right",
+      "actuator_name": "anterior_mylohyoid_right",
+      "points": [
+        [
+          -0.002041,
+          -0.148097,
+          0.048461
+        ],
+        [
+          -0.018053495,
+          -0.134707212,
+          0.070405205
+        ]
+      ],
+      "color": "#c99a6b"
+    }
+  ]
+}

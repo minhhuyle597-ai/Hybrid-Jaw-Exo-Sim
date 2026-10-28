@@ -2,9 +2,9 @@ import React,{useEffect,useRef,useState} from 'react';
 import {frameIndex} from './timeline.mjs';
 const asset=p=>import.meta.env.BASE_URL+p;
 
-export default function AnatomicalPlayer({manifest,videoRef,index,onFrame,onPlaying,onError,selected,onSelect,rate,onBusy}){
+export default function AnatomicalPlayer({manifest,videoRef,index,onFrame,onPlaying,onError,selected,onSelect,rate,onBusy,initialTime=0}){
  const [viewId,setViewId]=useState('front'),[paths,setPaths]=useState(null),[ready,setReady]=useState(false),[switching,setSwitching]=useState(true),[labels,setLabels]=useState(true),[zoom,setZoom]=useState(1),[center,setCenter]=useState([640,360]);
- const pending=useRef(true),restore=useRef({time:0,play:false}),cache=useRef(new Map()),drag=useRef(null),stage=useRef(null);
+ const pending=useRef(true),restore=useRef({time:initialTime,play:false}),cache=useRef(new Map()),drag=useRef(null),stage=useRef(null);
  const view=manifest.views.find(v=>v.id===viewId);
  useEffect(()=>onBusy(switching),[switching]);
  useEffect(()=>{let cancelled=false;setPaths(null);

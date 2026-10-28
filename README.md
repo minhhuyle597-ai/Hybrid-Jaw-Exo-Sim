@@ -24,6 +24,8 @@ An anatomical multi-view replay and muscle-data explorer built on MuJoCo.
 
 ## 功能
 
+新增 **结构 Atlas**：顶部导航进入独立 `#/atlas` 页面，可自由旋转四个骨骼网格、选择 18 个结构条目、控制图层与透明度，并查看 24 条模型肌肉路径。Atlas、知识图谱和运动回放通过稳定结构 ID 联动；图谱点击先展示逐条证据，再由用户选择跳转。范围、复现与验证见 [Atlas 开发说明](docs/ATLAS.md)。
+
 | 功能 | 当前实现 |
 | --- | --- |
 | 解剖视角 | 前观、后观、左侧观、右侧观、左前斜观；单视角显示，切换保留时间与播放状态 |
@@ -93,6 +95,13 @@ npm run build
 npm run preview
 ```
 
+Atlas 浏览器回归检查（先完成生产构建）：
+
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
+
 Windows 用户也可在完成安装与构建后双击 `启动演示.cmd`，使用 `http://127.0.0.1:5173/`。静态数据通过 HTTP 加载，不支持直接用 `file://` 打开 HTML。
 
 `vite.config.js` 使用相对资源路径，可同时在本机根路径和 GitHub Pages 项目子路径运行。推送 `main` 后，GitHub Actions 运行测试、构建并发布 Pages。
@@ -128,7 +137,7 @@ flowchart LR
 | 执行器广义力之和与引擎总输出比较 | 当前记录最大差为 `0` |
 | 肌腱路径长度跟踪 RMSE | **2.7117 mm** |
 
-这些检查验证数据组织、单位、同源性和数值一致性，**不构成生理准确性验证**。浏览器验证覆盖视角切换、暂停/跳转、肌肉比较、颜色标注和局部放大；`npm test` 共 12 项，额外检查 24 个肌肉的教材映射、逐条页码、五个自由度绑定、教学片段和自测答案。
+这些检查验证数据组织、单位、同源性和数值一致性，**不构成生理准确性验证**。`npm test` 覆盖原有回放、24 个执行器的教材映射和新增 Atlas 资源、稳定 ID、三维路径、逐条证据检查；`npm run test:e2e` 验证构建后站点的图层、页面联动、时间恢复、移动端与失败恢复。
 
 ## 解剖与力学边界
 
@@ -147,17 +156,22 @@ flowchart LR
 
 ```text
 src/
-  main.jsx                 结构选择、参数面板、教学片段与时间曲线
+  main.jsx                 共享索引、独立页面路由与按需加载
+  Atlas.jsx                结构目录、图层控制与教材证据
+  AtlasScene.jsx           Three.js 三维骨骼与模型路径
+  ReplayLab.jsx            结构选择、参数面板、教学片段与时间曲线
   AnatomicalPlayer.jsx     多视角、同步切换、投影标注、放大/导出
   TextbookPanel.jsx        教材页码、证据等级与相关结构
   EvidenceBoard.jsx        教材来源和结论证据总表
   QuizPanel.jsx            教材自测
   timeline.mjs             视频时间到数据帧索引
 public/
+  atlas/                   稳定结构目录、四个骨骼 GLB 与 24 条三维路径
   videos/views/            五个 MP4 与预览图
   data/                    原始状态、逐帧数据、教材、证据与验证报告
   licenses/                上游和骨骼网格声明
 scripts/
+  export_atlas.py           从保存首帧导出 Atlas，校验上游版本
   generate_demo.py          生成离线物理记录
   render_views.py           从同一记录渲染视频和路径投影
   verify_data.py            视频与数据复算检查
@@ -178,7 +192,7 @@ docs/                      解剖规范、数据和复现说明
 | [3Dentes](https://github.com/NateSaindon/3Dentes) | 结构清单、证据等级和来源追踪设计参考；未复制其 CBCT 模型或患者数据 |
 | [Human Atlas](https://github.com/slorksmo/Human-Atlas) | 大规模可搜索结构、图层控制和静态部署性能的界面参考；未复用其人体模型数据 |
 
-以下项目只进行过方案比较，未进入最终实现：[model-viewer](https://github.com/google/model-viewer)、[Three.js](https://github.com/mrdoob/three.js)、[Z-Anatomy](https://github.com/LluisV/Z-Anatomy)、[Cytoscape.js](https://github.com/cytoscape/cytoscape.js) 和 [markmap](https://github.com/markmap/markmap)。
+Atlas 使用 [Three.js](https://github.com/mrdoob/three.js) 渲染三维结构。以下项目只进行过方案比较，未进入最终实现：[model-viewer](https://github.com/google/model-viewer)、[Z-Anatomy](https://github.com/LluisV/Z-Anatomy)、[Cytoscape.js](https://github.com/cytoscape/cytoscape.js) 和 [markmap](https://github.com/markmap/markmap)。
 
 上游对应论文：P.-O. Müller and O. von Stryk, *Design and Modeling of a Novel Active Hybrid Exoskeleton for Jaw Motion Assistance*, IEEE BioRob 2026。请引用上游 [CITATION 文件](https://github.com/paulotto/hybrid-jaw-exo-sim/blob/v0.1.0/CITATION.cff)，并在使用本展示层时注明本仓库和实际使用的提交版本。
 

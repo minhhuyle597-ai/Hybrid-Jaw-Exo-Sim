@@ -1,5 +1,15 @@
 # hybrid-jaw-exo-sim
 
+## Atlas derivatives
+
+`public/atlas/{skull,maxilla,mandible,hyoid}.glb` are transformed derivatives of
+the anatomical visualization meshes in upstream v0.1.0. The muscle paths are
+derived from the same model at the first saved replay state. Source paths,
+commit, coordinate conversion and SHA256 records are in
+`public/atlas/manifest.json`. Original upstream and ArtiSynth attribution and
+notices below and in `public/licenses/` continue to apply. Atlas export does
+not establish independent anatomical accuracy or a new license for the meshes.
+
 Copyright 2026 Paul-Otto Müller
 
 This repository includes software developed by Paul-Otto Müller
