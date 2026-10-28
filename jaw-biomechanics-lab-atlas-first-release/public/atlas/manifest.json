@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "title": "口颌结构 Atlas",
+  "units": "m",
+  "coordinates": {
+    "left": "+X",
+    "superior": "+Y",
+    "anterior": "+Z",
+    "from_mujoco": [
+      "y",
+      "z",
+      "x"
+    ]
+  },
+  "state": {
+    "frame": 0,
+    "time_s": 0.0,
+    "sha256": "b575e8a175f3c5cb31f8906b13f8d6e4eb4fade01d56376fc068a2aa29a4e83d"
+  },
+  "provenance": {
+    "upstream": "https://github.com/paulotto/hybrid-jaw-exo-sim/tree/v0.1.0",
+    "commit": "f4d76c75be22c40eb0d1abdd1bde6a2c443df198",
+    "model": "assets/mjcf/exoskeleton/jaw/jaw_exo_model_rigid_skin_sep_compiled_wo_flex.xml",
+    "model_sha256": "77a0cfb0906f48d387ef68ad4d5e587b5dc6081def0c178e3c842d5cf9788e75",
+    "mujoco": "3.4.0",
+    "notices": [
+      "licenses/NOTICE.txt",
+      "licenses/anatomical-meshes.txt"
+    ]
+  },
+  "assets": [
+    {
+      "id": "bone.skull",
+      "url": "atlas/skull.glb",
+      "sha256": "55aaf94390c9b3a0640266ae38101107e9b15f90df1b46e134475d20a8188c2d",
+      "source_file": "assets/meshes/anatomical/jaw/visualization/skull_vis.obj",
+      "source_sha256": "26718ab1810658bce4dcaaf6bf707aec9df18dea2d6b8868f1bd379ab9e442a2",
+      "geom": "_skull_vis",
+      "vertices": 9264,
+      "triangles": 18259
+    },
+    {
+      "id": "bone.maxilla",
+      "url": "atlas/maxilla.glb",
+      "sha256": "8bf246eb25db7d5baa087dde9648be9915693d1511873e6714fbcc800369f175",
+      "source_file": "assets/meshes/anatomical/jaw/visualization/maxilla_vis.obj",
+      "source_sha256": "e31e01fdff88b6068f79e577ad24a192769109bbe450fd9be17446c78e0c10b1",
+      "geom": "_maxilla_vis",
+      "vertices": 99733,
+      "triangles": 199468
+    },
+    {
+      "id": "bone.mandible",
+      "url": "atlas/mandible.glb",
+      "sha256": "ec921dde5d95c1814b628bdc37b8627fcaaec0955982cf48fb104a7a0740aabf",
+      "source_file": "assets/meshes/anatomical/jaw/visualization/mandible_vis.obj",
+      "source_sha256": "ab747df666deabf8392bdb0b0699df09e9c676e694f2c38d4acf0db85e1d03e9",
+      "geom": "_mandible_vis",
+      "vertices": 20882,
+      "triangles": 41760
+    },
+    {
+      "id": "bone.hyoid",
+      "url": "atlas/hyoid.glb",
+      "sha256": "95368bf0f0b40cb6db6af43f44a997f28919e6f2206b4e4be1fe1aebe7965f95",
+      "source_file": "assets/meshes/anatomical/jaw/visualization/hyoid_vis.obj",
+      "source_sha256": "d8609e73353dad60aa4643fe4172ad63864e4125034ca6447fa9b5dc0d5e2e72",
+      "geom": "_hyoid_vis",
+      "vertices": 3472,
+      "triangles": 6940
+    },
+    {
+      "id": "muscle-paths",
+      "url": "atlas/muscle-paths.json",
+      "sha256": "dbef1203f286c88b134d27b028b3f68ed70164bfc394919deb1bd704d31bdc08"
+    }
+  ],
+  "structures": [
+    {
+      "id": "bone.skull",
+      "label": "颅骨",
+      "english": "skull",
+      "aliases": [],
+      "kind": "bone",
+      "region": "颅颌",
+      "layer": "骨骼",
+      "side": "midline",
+      "representation": "mesh",
+      "asset_id": "bone.skull",
+      "bindings": [],
+      "evidence_groups": [],
+      "note": "上游简化骨骼网格，可能包含未独立分割的结构；未完成逐表面解剖核验。"
+    },
+    {
+      "id": "bone.maxilla",
+      "label": "上颌骨",
+      "english": "maxilla",
+      "aliases": [],
+      "kind": "bone",
+      "region": "颅颌",
+      "layer": "骨骼",
+      "side": "midline",
+      "representation": "mesh",
+      "asset_id": "bone.maxilla",
+      "bindings": [],
+      "evidence_groups": [],
+      "note": "上游简化骨骼网格，可能包含未独立分割的结构；未完成逐表面解剖核验。"
+    },
+    {
+      "id": "bone.mandible",
+      "label": "下颌骨",
+      "english": "mandible",
+      "aliases": [],
+      "kind": "bone",
+      "region": "颅颌",
+      "layer": "骨骼",
+      "side": "midline",
+      "representation": "mesh",
+      "asset_id": "bone.mandible",
+      "bindings": [],
+      "evidence_groups": [],
+      "note": "上游简化骨骼网格，可能包含未独立分割的结构；未完成逐表面解剖核验。"
+    },
+    {
+      "id": "bone.hyoid",
+      "label": "舌骨",
+      "english": "hyoid",
+      "aliases": [],
+      "kind": "bone",
+      "region": "口底",
+      "layer": "骨骼",
+      "side": "midline",
+      "representation": "mesh",
+      "asset_id": "bone.hyoid",
+      "bindings": [],
+      "evidence_groups": [],
+      "note": "上游简化骨骼网格，可能包含未独立分割的结构；未完成逐表面解剖核验。"
+    },
+    {
+      "id": "muscle.temporalis.left",
+      "label": "左侧颞肌",
+      "english": "temporalis left",
+      "aliases": [
+        "颞肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "left",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 0,
+          "name": "posterior_temporalis_left",
+          "code": "M01",
+          "label": "左侧颞肌后束",
+          "color": "#6f4dbb"
+        },
+        {
+          "id": 2,
+          "name": "medial_temporalis_left",
+          "code": "M03",
+          "label": "左侧颞肌中束",
+          "color": "#445fc3"
+        },
+        {
+          "id": 4,
+          "name": "anterior_temporalis_left",
+          "code": "M05",
+          "label": "左侧颞肌前束",
+          "color": "#247bb5"
+        }
+      ],
+      "evidence_groups": [
+        "颞肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.temporalis.right",
+      "label": "右侧颞肌",
+      "english": "temporalis right",
+      "aliases": [
+        "颞肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "right",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 1,
+          "name": "posterior_temporalis_right",
+          "code": "M02",
+          "label": "右侧颞肌后束",
+          "color": "#9c78dc"
+        },
+        {
+          "id": 3,
+          "name": "medial_temporalis_right",
+          "code": "M04",
+          "label": "右侧颞肌中束",
+          "color": "#7c94ef"
+        },
+        {
+          "id": 5,
+          "name": "anterior_temporalis_right",
+          "code": "M06",
+          "label": "右侧颞肌前束",
+          "color": "#64b5df"
+        }
+      ],
+      "evidence_groups": [
+        "颞肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.medial_pterygoid.left",
+      "label": "左侧翼内肌",
+      "english": "medial pterygoid left",
+      "aliases": [
+        "翼内肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "left",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 6,
+          "name": "medial_pterygoid_left",
+          "code": "M07",
+          "label": "左侧翼内肌",
+          "color": "#008f83"
+        }
+      ],
+      "evidence_groups": [
+        "翼内肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.medial_pterygoid.right",
+      "label": "右侧翼内肌",
+      "english": "medial pterygoid right",
+      "aliases": [
+        "翼内肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "right",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 7,
+          "name": "medial_pterygoid_right",
+          "code": "M08",
+          "label": "右侧翼内肌",
+          "color": "#4fbbab"
+        }
+      ],
+      "evidence_groups": [
+        "翼内肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.lateral_pterygoid.left",
+      "label": "左侧翼外肌",
+      "english": "lateral pterygoid left",
+      "aliases": [
+        "翼外肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "left",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 8,
+          "name": "superior_lateral_pterygoid_left",
+          "code": "M09",
+          "label": "左侧翼外肌上头",
+          "color": "#ac650b"
+        },
+        {
+          "id": 10,
+          "name": "inferior_lateral_pterygoid_left",
+          "code": "M11",
+          "label": "左侧翼外肌下头",
+          "color": "#bf4b18"
+        }
+      ],
+      "evidence_groups": [
+        "翼外肌上头",
+        "翼外肌下头"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.lateral_pterygoid.right",
+      "label": "右侧翼外肌",
+      "english": "lateral pterygoid right",
+      "aliases": [
+        "翼外肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "right",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 9,
+          "name": "superior_lateral_pterygoid_right",
+          "code": "M10",
+          "label": "右侧翼外肌上头",
+          "color": "#e4a539"
+        },
+        {
+          "id": 11,
+          "name": "inferior_lateral_pterygoid_right",
+          "code": "M12",
+          "label": "右侧翼外肌下头",
+          "color": "#eb8752"
+        }
+      ],
+      "evidence_groups": [
+        "翼外肌上头",
+        "翼外肌下头"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.masseter.left",
+      "label": "左侧咬肌",
+      "english": "masseter left",
+      "aliases": [
+        "咬肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "left",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 12,
+          "name": "superficial_masseter_left",
+          "code": "M13",
+          "label": "左侧咬肌浅层",
+          "color": "#bd234c"
+        },
+        {
+          "id": 14,
+          "name": "deep_masseter_left",
+          "code": "M15",
+          "label": "左侧咬肌深层",
+          "color": "#a72b86"
+        }
+      ],
+      "evidence_groups": [
+        "咬肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.masseter.right",
+      "label": "右侧咬肌",
+      "english": "masseter right",
+      "aliases": [
+        "咬肌"
+      ],
+      "kind": "muscle",
+      "region": "颅颌",
+      "layer": "咀嚼肌",
+      "side": "right",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 13,
+          "name": "superficial_masseter_right",
+          "code": "M14",
+          "label": "右侧咬肌浅层",
+          "color": "#ec6483"
+        },
+        {
+          "id": 15,
+          "name": "deep_masseter_right",
+          "code": "M16",
+          "label": "右侧咬肌深层",
+          "color": "#d77cbd"
+        }
+      ],
+      "evidence_groups": [
+        "咬肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.geniohyoid.left",
+      "label": "左侧颏舌骨肌",
+      "english": "geniohyoid left",
+      "aliases": [
+        "颏舌骨肌"
+      ],
+      "kind": "muscle",
+      "region": "口底",
+      "layer": "舌骨上肌群",
+      "side": "left",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 16,
+          "name": "geniohyoid_left",
+          "code": "M17",
+          "label": "左侧颏舌骨肌",
+          "color": "#4c7133"
+        }
+      ],
+      "evidence_groups": [
+        "颏舌骨肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.geniohyoid.right",
+      "label": "右侧颏舌骨肌",
+      "english": "geniohyoid right",
+      "aliases": [
+        "颏舌骨肌"
+      ],
+      "kind": "muscle",
+      "region": "口底",
+      "layer": "舌骨上肌群",
+      "side": "right",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 17,
+          "name": "geniohyoid_right",
+          "code": "M18",
+          "label": "右侧颏舌骨肌",
+          "color": "#8ba75c"
+        }
+      ],
+      "evidence_groups": [
+        "颏舌骨肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.digastric_anterior_belly.left",
+      "label": "左侧二腹肌前腹",
+      "english": "digastric anterior belly left",
+      "aliases": [
+        "二腹肌前腹"
+      ],
+      "kind": "muscle",
+      "region": "口底",
+      "layer": "舌骨上肌群",
+      "side": "left",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 18,
+          "name": "anterior_digastric_left",
+          "code": "M19",
+          "label": "左侧二腹肌前腹",
+          "color": "#077eab"
+        }
+      ],
+      "evidence_groups": [
+        "二腹肌前腹"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.digastric_anterior_belly.right",
+      "label": "右侧二腹肌前腹",
+      "english": "digastric anterior belly right",
+      "aliases": [
+        "二腹肌前腹"
+      ],
+      "kind": "muscle",
+      "region": "口底",
+      "layer": "舌骨上肌群",
+      "side": "right",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 19,
+          "name": "anterior_digastric_right",
+          "code": "M20",
+          "label": "右侧二腹肌前腹",
+          "color": "#47accf"
+        }
+      ],
+      "evidence_groups": [
+        "二腹肌前腹"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.mylohyoid.left",
+      "label": "左侧下颌舌骨肌",
+      "english": "mylohyoid left",
+      "aliases": [
+        "下颌舌骨肌"
+      ],
+      "kind": "muscle",
+      "region": "口底",
+      "layer": "舌骨上肌群",
+      "side": "left",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 20,
+          "name": "posterior_mylohyoid_left",
+          "code": "M21",
+          "label": "左侧下颌舌骨肌后部",
+          "color": "#695149"
+        },
+        {
+          "id": 22,
+          "name": "anterior_mylohyoid_left",
+          "code": "M23",
+          "label": "左侧下颌舌骨肌前部",
+          "color": "#9c6032"
+        }
+      ],
+      "evidence_groups": [
+        "下颌舌骨肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    },
+    {
+      "id": "muscle.mylohyoid.right",
+      "label": "右侧下颌舌骨肌",
+      "english": "mylohyoid right",
+      "aliases": [
+        "下颌舌骨肌"
+      ],
+      "kind": "muscle",
+      "region": "口底",
+      "layer": "舌骨上肌群",
+      "side": "right",
+      "representation": "path",
+      "asset_id": "muscle-paths",
+      "bindings": [
+        {
+          "id": 21,
+          "name": "posterior_mylohyoid_right",
+          "code": "M22",
+          "label": "右侧下颌舌骨肌后部",
+          "color": "#a18575"
+        },
+        {
+          "id": 23,
+          "name": "anterior_mylohyoid_right",
+          "code": "M24",
+          "label": "右侧下颌舌骨肌前部",
+          "color": "#c99a6b"
+        }
+      ],
+      "evidence_groups": [
+        "下颌舌骨肌"
+      ],
+      "note": "以首帧模型肌肉—肌腱路径表示，不是真实肌腹体积或经过独立核验的附着面。"
+    }
+  ]
+}

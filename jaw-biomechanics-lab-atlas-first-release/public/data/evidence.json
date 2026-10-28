@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "labels": {
+    "textbook_confirmed": "教材已核验",
+    "reference_confirmed": "公开参考支持",
+    "textbook_pending": "教材页码待核验",
+    "contested": "教材存在分歧",
+    "model_assumption": "模型教学假设",
+    "unverified": "尚未核验"
+  },
+  "topics": [
+    {
+      "id": "masticatory_muscles",
+      "label": "咀嚼肌",
+      "groups": ["咬肌", "颞肌", "翼内肌", "翼外肌上头", "翼外肌下头"],
+      "source_ids": ["oral_anatomy_8e", "occlusion_4e"]
+    },
+    {
+      "id": "suprahyoid_muscles",
+      "label": "舌骨上肌群",
+      "groups": ["颏舌骨肌", "二腹肌前腹", "下颌舌骨肌"],
+      "source_ids": ["oral_anatomy_8e"]
+    },
+    {
+      "id": "mandibular_motion",
+      "label": "下颌运动",
+      "groups": ["翼外肌上头", "翼外肌下头", "颏舌骨肌", "二腹肌前腹", "下颌舌骨肌"],
+      "source_ids": ["occlusion_4e", "okeson_zh_8e"]
+    },
+    {
+      "id": "biomechanics",
+      "label": "力学量与边界",
+      "groups": ["咬肌", "颞肌", "翼内肌", "翼外肌上头", "翼外肌下头", "颏舌骨肌", "二腹肌前腹", "下颌舌骨肌"],
+      "source_ids": ["oral_biomechanics_yu", "oral_biomechanics_chen", "fung_biomechanics"]
+    }
+  ],
+  "groups": {
+    "颞肌": {
+      "support_level": "textbook_confirmed",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+      "related_groups": ["咬肌", "翼内肌"],
+      "claims": [
+        {
+          "statement": "颞肌参与上提下颌骨",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "110" }]
+        },
+        {
+          "statement": "颞肌后部纤维参与下颌后缩",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "110" }]
+        }
+      ]
+    },
+    "翼内肌": {
+      "support_level": "textbook_confirmed",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+      "related_groups": ["咬肌", "颞肌"],
+      "claims": [
+        {
+          "statement": "翼内肌参与上提下颌骨，并可参与前伸",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "111" }]
+        }
+      ]
+    },
+    "翼外肌上头": {
+      "support_level": "contested",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e", "okeson_zh_8e"],
+      "related_groups": ["翼外肌下头", "咬肌"],
+      "claims": [
+        {
+          "statement": "上头在闭口和关节盘控制中的作用，不同教材和文献的表述存在差异",
+          "support_level": "contested",
+          "source_ids": ["oral_anatomy_8e", "okeson_zh_8e", "okeson_en_9e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "103, 111" }]
+        }
+      ]
+    },
+    "翼外肌下头": {
+      "support_level": "textbook_confirmed",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+      "related_groups": ["翼外肌上头", "颏舌骨肌"],
+      "claims": [
+        {
+          "statement": "下头参与下颌下降和前伸",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "111" }]
+        }
+      ]
+    },
+    "咬肌": {
+      "support_level": "textbook_confirmed",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e", "occlusion_4e", "dawson_functional_occlusion"],
+      "related_groups": ["颞肌", "翼内肌"],
+      "claims": [
+        {
+          "statement": "咬肌参与上提下颌骨和咬合力建立",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "110-111" }]
+        },
+        {
+          "statement": "浅层与深层对应模型执行器分束，不等于完整解剖肌腹",
+          "support_level": "model_assumption",
+          "source_ids": [],
+          "citations": []
+        }
+      ]
+    },
+    "颏舌骨肌": {
+      "support_level": "textbook_confirmed",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+      "related_groups": ["二腹肌前腹", "下颌舌骨肌"],
+      "claims": [
+        {
+          "statement": "颏舌骨肌的作用依赖舌骨固定条件，可参与下降下颌或上提舌骨",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "118" }]
+        }
+      ]
+    },
+    "二腹肌前腹": {
+      "support_level": "textbook_confirmed",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e", "occlusion_4e"],
+      "related_groups": ["颏舌骨肌", "下颌舌骨肌"],
+      "claims": [
+        {
+          "statement": "二腹肌前腹参与下降下颌和上提舌骨",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "117" }]
+        }
+      ]
+    },
+    "下颌舌骨肌": {
+      "support_level": "textbook_confirmed",
+      "textbook_status": "textbook_confirmed",
+      "source_ids": ["oral_anatomy_8e"],
+      "related_groups": ["颏舌骨肌", "二腹肌前腹"],
+      "claims": [
+        {
+          "statement": "下颌舌骨肌构成口底，在舌骨固定时可参与下降下颌",
+          "support_level": "textbook_confirmed",
+          "source_ids": ["oral_anatomy_8e"],
+          "citations": [{ "source_id": "oral_anatomy_8e", "pages": "118" }]
+        }
+      ]
+    }
+  },
+  "model_boundaries": [
+    "24 个执行器是模型分束，不等同于 24 块独立解剖肌肉。",
+    "执行器力不是牙齿咬合力。",
+    "肌腱路径长度不是单独肌纤维长度。",
+    "当前记录未计算关节反作用力，网页也不在浏览器中实时求解物理。",
+    "本项目的证据状态不等于临床诊断结论。"
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "width": 1280,
+  "height": 720,
+  "fps": 25,
+  "frame_count": 536,
+  "camera": {
+    "lookat": [
+      0.0,
+      0.0,
+      -0.065
+    ],
+    "distance": 0.57,
+    "elevation": 0,
+    "ipd": 0
+  },
+  "muscles": [
+    {
+      "id": 0,
+      "code": "M01",
+      "name": "posterior_temporalis_left",
+      "label": "左侧颞肌后束",
+      "group": "颞肌",
+      "side": "左",
+      "color": "#6f4dbb"
+    },
+    {
+      "id": 1,
+      "code": "M02",
+      "name": "posterior_temporalis_right",
+      "label": "右侧颞肌后束",
+      "group": "颞肌",
+      "side": "右",
+      "color": "#9c78dc"
+    },
+    {
+      "id": 2,
+      "code": "M03",
+      "name": "medial_temporalis_left",
+      "label": "左侧颞肌中束",
+      "group": "颞肌",
+      "side": "左",
+      "color": "#445fc3"
+    },
+    {
+      "id": 3,
+      "code": "M04",
+      "name": "medial_temporalis_right",
+      "label": "右侧颞肌中束",
+      "group": "颞肌",
+      "side": "右",
+      "color": "#7c94ef"
+    },
+    {
+      "id": 4,
+      "code": "M05",
+      "name": "anterior_temporalis_left",
+      "label": "左侧颞肌前束",
+      "group": "颞肌",
+      "side": "左",
+      "color": "#247bb5"
+    },
+    {
+      "id": 5,
+      "code": "M06",
+      "name": "anterior_temporalis_right",
+      "label": "右侧颞肌前束",
+      "group": "颞肌",
+      "side": "右",
+      "color": "#64b5df"
+    },
+    {
+      "id": 6,
+      "code": "M07",
+      "name": "medial_pterygoid_left",
+      "label": "左侧翼内肌",
+      "group": "翼肌",
+      "side": "左",
+      "color": "#008f83"
+    },
+    {
+      "id": 7,
+      "code": "M08",
+      "name": "medial_pterygoid_right",
+      "label": "右侧翼内肌",
+      "group": "翼肌",
+      "side": "右",
+      "color": "#4fbbab"
+    },
+    {
+      "id": 8,
+      "code": "M09",
+      "name": "superior_lateral_pterygoid_left",
+      "label": "左侧翼外肌上头",
+      "group": "翼肌",
+      "side": "左",
+      "color": "#ac650b"
+    },
+    {
+      "id": 9,
+      "code": "M10",
+      "name": "superior_lateral_pterygoid_right",
+      "label": "右侧翼外肌上头",
+      "group": "翼肌",
+      "side": "右",
+      "color": "#e4a539"
+    },
+    {
+      "id": 10,
+      "code": "M11",
+      "name": "inferior_lateral_pterygoid_left",
+      "label": "左侧翼外肌下头",
+      "group": "翼肌",
+      "side": "左",
+      "color": "#bf4b18"
+    },
+    {
+      "id": 11,
+      "code": "M12",
+      "name": "inferior_lateral_pterygoid_right",
+      "label": "右侧翼外肌下头",
+      "group": "翼肌",
+      "side": "右",
+      "color": "#eb8752"
+    },
+    {
+      "id": 12,
+      "code": "M13",
+      "name": "superficial_masseter_left",
+      "label": "左侧咬肌浅层",
+      "group": "咬肌",
+      "side": "左",
+      "color": "#bd234c"
+    },
+    {
+      "id": 13,
+      "code": "M14",
+      "name": "superficial_masseter_right",
+      "label": "右侧咬肌浅层",
+      "group": "咬肌",
+      "side": "右",
+      "color": "#ec6483"
+    },
+    {
+      "id": 14,
+      "code": "M15",
+      "name": "deep_masseter_left",
+      "label": "左侧咬肌深层",
+      "group": "咬肌",
+      "side": "左",
+      "color": "#a72b86"
+    },
+    {
+      "id": 15,
+      "code": "M16",
+      "name": "deep_masseter_right",
+      "label": "右侧咬肌深层",
+      "group": "咬肌",
+      "side": "右",
+      "color": "#d77cbd"
+    },
+    {
+      "id": 16,
+      "code": "M17",
+      "name": "geniohyoid_left",
+      "label": "左侧颏舌骨肌",
+      "group": "舌骨上肌群",
+      "side": "左",
+      "color": "#4c7133"
+    },
+    {
+      "id": 17,
+      "code": "M18",
+      "name": "geniohyoid_right",
+      "label": "右侧颏舌骨肌",
+      "group": "舌骨上肌群",
+      "side": "右",
+      "color": "#8ba75c"
+    },
+    {
+      "id": 18,
+      "code": "M19",
+      "name": "anterior_digastric_left",
+      "label": "左侧二腹肌前腹",
+      "group": "舌骨上肌群",
+      "side": "左",
+      "color": "#077eab"
+    },
+    {
+      "id": 19,
+      "code": "M20",
+      "name": "anterior_digastric_right",
+      "label": "右侧二腹肌前腹",
+      "group": "舌骨上肌群",
+      "side": "右",
+      "color": "#47accf"
+    },
+    {
+      "id": 20,
+      "code": "M21",
+      "name": "posterior_mylohyoid_left",
+      "label": "左侧下颌舌骨肌后部",
+      "group": "舌骨上肌群",
+      "side": "左",
+      "color": "#695149"
+    },
+    {
+      "id": 21,
+      "code": "M22",
+      "name": "posterior_mylohyoid_right",
+      "label": "右侧下颌舌骨肌后部",
+      "group": "舌骨上肌群",
+      "side": "右",
+      "color": "#a18575"
+    },
+    {
+      "id": 22,
+      "code": "M23",
+      "name": "anterior_mylohyoid_left",
+      "label": "左侧下颌舌骨肌前部",
+      "group": "舌骨上肌群",
+      "side": "左",
+      "color": "#9c6032"
+    },
+    {
+      "id": 23,
+      "code": "M24",
+      "name": "anterior_mylohyoid_right",
+      "label": "右侧下颌舌骨肌前部",
+      "group": "舌骨上肌群",
+      "side": "右",
+      "color": "#c99a6b"
+    }
+  ],
+  "views": [
+    {
+      "id": "front",
+      "label": "前观",
+      "en": "Anterior",
+      "azimuth": 180,
+      "left": "R · 模型右",
+      "right": "L · 模型左",
+      "video": "videos/views/front.mp4",
+      "poster": "videos/views/front.png",
+      "paths": "data/front-paths.json",
+      "sha256": "3ec461420d106d237140a4f4185c3060b98948990ac62fc380f86e884fde425d"
+    },
+    {
+      "id": "back",
+      "label": "后观",
+      "en": "Posterior",
+      "azimuth": 0,
+      "left": "L · 模型左",
+      "right": "R · 模型右",
+      "video": "videos/views/back.mp4",
+      "poster": "videos/views/back.png",
+      "paths": "data/back-paths.json",
+      "sha256": "c17c7762208855ef5615442489ef8b481cfd87063499dfe535b123e2cc32a9d9"
+    },
+    {
+      "id": "left",
+      "label": "左侧观",
+      "en": "Left lateral",
+      "azimuth": 270,
+      "left": "A · 前",
+      "right": "P · 后",
+      "video": "videos/views/left.mp4",
+      "poster": "videos/views/left.png",
+      "paths": "data/left-paths.json",
+      "sha256": "42b6185c766aa8d94bed05516346b7c43ac342c69077278029b8857db4439b54"
+    },
+    {
+      "id": "right",
+      "label": "右侧观",
+      "en": "Right lateral",
+      "azimuth": 90,
+      "left": "P · 后",
+      "right": "A · 前",
+      "video": "videos/views/right.mp4",
+      "poster": "videos/views/right.png",
+      "paths": "data/right-paths.json",
+      "sha256": "e8bfec03cb36eae5aa1f13ab76c8aeadb7cfc86101a6d400e4b0bede2021fb85"
+    },
+    {
+      "id": "oblique",
+      "label": "左前斜观",
+      "en": "Left anterior oblique",
+      "azimuth": 225,
+      "left": "A / R",
+      "right": "P / L",
+      "video": "videos/views/oblique.mp4",
+      "poster": "videos/views/oblique.png",
+      "paths": "data/oblique-paths.json",
+      "sha256": "6164b0eed47939e9f5b15d80316e10ae0c625fa711325a9afd8e05e13e484365"
+    }
+  ],
+  "annotation": "Camera-projected muscle-tendon paths. Overlay includes occluded structures; it is not surface segmentation."
+}
