@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "book": {
+    "title": "口腔解剖生理学",
+    "edition": "第8版",
+    "publisher": "人民卫生出版社",
+    "year": 2020,
+    "isbn": "9787117293723",
+    "editor": "何三纲",
+    "associate_editor": "于海洋",
+    "note": "页码以第8版印刷页码为准；PDF 物理页与印刷页相差 19。"
+  },
+  "sources": {
+    "mastication": {
+      "label": "咀嚼肌解剖",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK541027/",
+      "kind": "reference"
+    },
+    "stomatognathic": {
+      "label": "口颌系统解剖与功能",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK557988/",
+      "kind": "reference"
+    },
+    "terminology": {
+      "label": "解剖方位术语",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-6-anatomical-terminology",
+      "kind": "reference"
+    }
+  },
+  "groups": {
+    "颞肌": {
+      "functions": ["上提下颌骨", "后部纤维参与下颌后缩"],
+      "origin_insertion": "颞窝与筋膜至下颌冠突",
+      "model_note": "模型将颞肌分为前、中、后三束执行器，不等于三块独立肌肉。"
+    },
+    "翼内肌": {
+      "functions": ["上提下颌骨", "参与下颌前伸"],
+      "origin_insertion": "翼突窝至下颌角内侧面",
+      "model_note": "模型以单个执行器近似该肌束活动。"
+    },
+    "翼外肌上头": {
+      "functions": ["与闭口肌群协同", "部分文献认为其参与关节盘控制"],
+      "origin_insertion": "蝶骨大翼颞下面至上头附着区",
+      "model_note": "该结构的作用解释存在分歧，模型不能作为关节盘功能的直接证据。"
+    },
+    "翼外肌下头": {
+      "functions": ["下颌下降", "下颌前伸"],
+      "origin_insertion": "翼突外侧板至下颌颈与关节囊",
+      "model_note": "模型以下头执行器表示该肌束。"
+    },
+    "咬肌": {
+      "functions": ["上提下颌骨", "参与咬合力建立"],
+      "origin_insertion": "颧弓至下颌支与下颌角外侧面",
+      "model_note": "模型分为浅层与深层，执行器力不能直接等于牙齿咬合力。"
+    },
+    "颏舌骨肌": {
+      "functions": ["舌骨固定时下降下颌骨", "下颌固定时上提舌骨"],
+      "origin_insertion": "下颌颏棘至舌骨体",
+      "model_note": "作用方向依赖舌骨和关节边界条件。"
+    },
+    "二腹肌前腹": {
+      "functions": ["下降下颌骨", "上提舌骨"],
+      "origin_insertion": "下颌骨二腹肌窝经中间腱至舌骨",
+      "model_note": "模型只表示前腹，不包含后腹与中间腱。"
+    },
+    "下颌舌骨肌": {
+      "functions": ["构成口底", "舌骨固定时参与下降下颌骨"],
+      "origin_insertion": "下颌舌骨线至舌骨与正中缝",
+      "model_note": "模型分为前后部执行器，不代表实际肌纤维分界。"
+    }
+  },
+  "muscles": {
+    "posterior_temporalis_left": { "group": "颞肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 1. 颞肌", "page": "110" }, "textbook_status": "textbook_confirmed" },
+    "posterior_temporalis_right": { "group": "颞肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 1. 颞肌", "page": "110" }, "textbook_status": "textbook_confirmed" },
+    "medial_temporalis_left": { "group": "颞肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 1. 颞肌", "page": "110" }, "textbook_status": "textbook_confirmed" },
+    "medial_temporalis_right": { "group": "颞肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 1. 颞肌", "page": "110" }, "textbook_status": "textbook_confirmed" },
+    "anterior_temporalis_left": { "group": "颞肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 1. 颞肌", "page": "110" }, "textbook_status": "textbook_confirmed" },
+    "anterior_temporalis_right": { "group": "颞肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 1. 颞肌", "page": "110" }, "textbook_status": "textbook_confirmed" },
+    "medial_pterygoid_left": { "group": "翼内肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 3. 翼内肌", "page": "111" }, "textbook_status": "textbook_confirmed" },
+    "medial_pterygoid_right": { "group": "翼内肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 3. 翼内肌", "page": "111" }, "textbook_status": "textbook_confirmed" },
+    "superior_lateral_pterygoid_left": { "group": "翼外肌上头", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "二、咀嚼肌 4. 翼外肌；翼外肌上头与颞下颌关节的解剖关系", "page": "103, 111" }, "textbook_status": "textbook_confirmed" },
+    "superior_lateral_pterygoid_right": { "group": "翼外肌上头", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "二、咀嚼肌 4. 翼外肌；翼外肌上头与颞下颌关节的解剖关系", "page": "103, 111" }, "textbook_status": "textbook_confirmed" },
+    "inferior_lateral_pterygoid_left": { "group": "翼外肌下头", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 4. 翼外肌", "page": "111" }, "textbook_status": "textbook_confirmed" },
+    "inferior_lateral_pterygoid_right": { "group": "翼外肌下头", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 4. 翼外肌", "page": "111" }, "textbook_status": "textbook_confirmed" },
+    "superficial_masseter_left": { "group": "咬肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 2. 咬肌", "page": "110-111" }, "textbook_status": "textbook_confirmed" },
+    "superficial_masseter_right": { "group": "咬肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 2. 咬肌", "page": "110-111" }, "textbook_status": "textbook_confirmed" },
+    "deep_masseter_left": { "group": "咬肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 2. 咬肌", "page": "110-111" }, "textbook_status": "textbook_confirmed" },
+    "deep_masseter_right": { "group": "咬肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "第三节 肌 · 二、咀嚼肌 2. 咬肌", "page": "110-111" }, "textbook_status": "textbook_confirmed" },
+    "geniohyoid_left": { "group": "颏舌骨肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (3) 颏舌骨肌", "page": "118" }, "textbook_status": "textbook_confirmed" },
+    "geniohyoid_right": { "group": "颏舌骨肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (3) 颏舌骨肌", "page": "118" }, "textbook_status": "textbook_confirmed" },
+    "anterior_digastric_left": { "group": "二腹肌前腹", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (1) 二腹肌", "page": "117" }, "textbook_status": "textbook_confirmed" },
+    "anterior_digastric_right": { "group": "二腹肌前腹", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (1) 二腹肌", "page": "117" }, "textbook_status": "textbook_confirmed" },
+    "posterior_mylohyoid_left": { "group": "下颌舌骨肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (2) 下颌舌骨肌", "page": "118" }, "textbook_status": "textbook_confirmed" },
+    "posterior_mylohyoid_right": { "group": "下颌舌骨肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (2) 下颌舌骨肌", "page": "118" }, "textbook_status": "textbook_confirmed" },
+    "anterior_mylohyoid_left": { "group": "下颌舌骨肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (2) 下颌舌骨肌", "page": "118" }, "textbook_status": "textbook_confirmed" },
+    "anterior_mylohyoid_right": { "group": "下颌舌骨肌", "textbook_ref": { "chapter": "第四章 口腔颌面颈部系统解剖", "section": "五、颈部肌 · 舌骨上肌群 (2) 下颌舌骨肌", "page": "118" }, "textbook_status": "textbook_confirmed" }
+  },
+  "dofs": {
+    "_tmj_slide_xz": {
+      "label": "颞下颌关节前后/内外滑动",
+      "kind": "translation",
+      "note": "模型中的平移广义坐标，不等同于真实关节盘滑动。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "14-20, 138-144", "chapter": "第二章 口腔生物力学的基本概念和定义；第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_slide_y": {
+      "label": "颞下颌关节左右滑动",
+      "kind": "translation",
+      "note": "模型平移自由度，具体解剖对应需教材核验。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "14-20, 138-144", "chapter": "第二章 口腔生物力学的基本概念和定义；第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_hinge_x": {
+      "label": "铰链旋转自由度 X",
+      "kind": "rotation",
+      "note": "模型旋转自由度，正负依赖坐标约定。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "138-144, 151-152", "chapter": "第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_hinge_y": {
+      "label": "铰链旋转自由度 Y",
+      "kind": "rotation",
+      "note": "模型旋转自由度，正负依赖坐标约定。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "138-144, 151-152", "chapter": "第五章 口腔天然器官生物力学" }
+    },
+    "_tmj_hinge_z": {
+      "label": "铰链旋转自由度 Z",
+      "kind": "rotation",
+      "note": "模型旋转自由度，正负依赖坐标约定。",
+      "textbook_status": "model_assumption",
+      "textbook_ref": { "source_id": "oral_biomechanics_yu", "pages": "138-144, 151-152", "chapter": "第五章 口腔天然器官生物力学" }
+    }
+  }
+}

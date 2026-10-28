@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "oral_anatomy_8e",
+      "title": "口腔解剖生理学",
+      "edition": "第8版",
+      "authors": "何三纲 主编",
+      "publisher": "人民卫生出版社",
+      "year": 2020,
+      "isbn": "9787117293723",
+      "priority": "core",
+      "use": ["骨与关节", "咀嚼肌", "牙列与口颌系统"],
+      "url": "https://weread.qq.com/web/bookDetail/dfc32e60811e4de8dg014f3c"
+    },
+    {
+      "id": "occlusion_4e",
+      "title": "牙合学",
+      "edition": "第4版",
+      "authors": "王美青 主编",
+      "publisher": "人民卫生出版社",
+      "year": 2020,
+      "isbn": "9787117297967",
+      "priority": "core",
+      "use": ["咬合关系", "下颌运动", "牙列功能"],
+      "url": "https://aijiaocai.com/shopfront/textbook/index?dealer_book_id=275312"
+    },
+    {
+      "id": "okeson_zh_8e",
+      "title": "颞下颌关节紊乱病与咬合的诊治",
+      "edition": "第8版",
+      "authors": "Jeffrey P. Okeson 著；张思慧、陈江 译；傅开元 主审",
+      "publisher": "辽宁科学技术出版社",
+      "year": 2024,
+      "priority": "core",
+      "use": ["颞下颌关节功能", "咬合功能", "临床背景"],
+      "url": "https://item.winxuan.com/1203224039"
+    },
+    {
+      "id": "okeson_en_9e",
+      "title": "Clinical Management of Temporomandibular Disorders and Occlusion",
+      "edition": "9th ed.",
+      "authors": "Jeffrey P. Okeson",
+      "publisher": "Elsevier",
+      "year": 2026,
+      "priority": "method",
+      "use": ["新版术语对照", "TMJ 与咬合"],
+      "url": "https://shop.elsevier.com/books/clinical-management-of-temporomandibular-disorders-and-occlusion/okeson/978-0-443-11483-0"
+    },
+    {
+      "id": "dawson_functional_occlusion",
+      "title": "Functional Occlusion: From TMJ to Smile Design",
+      "edition": "2007",
+      "authors": "Peter E. Dawson",
+      "publisher": "Mosby/Elsevier",
+      "year": 2007,
+      "isbn": "9780323033718",
+      "priority": "core",
+      "use": ["功能咬合", "临床解释"],
+      "url": "https://shop.elsevier.com/books/functional-occlusion/dawson/978-0-323-03371-8"
+    },
+    {
+      "id": "oral_biomechanics_chen",
+      "title": "口腔生物力学",
+      "edition": "第1版",
+      "authors": "陈新民、赵云凤 主编",
+      "publisher": "科学出版社",
+      "year": 2010,
+      "isbn": "9787030275615",
+      "priority": "method",
+      "use": ["口腔组织力学", "生物力学基本关系"],
+      "url": "https://182.92.153.170/goods.php?id=11491"
+    },
+    {
+      "id": "oral_biomechanics_yu",
+      "title": "口腔生物力学",
+      "edition": "第1版",
+      "authors": "于海洋 主编",
+      "publisher": "人民卫生出版社",
+      "year": 2012,
+      "isbn": "9787117153256",
+      "priority": "method",
+      "use": ["研究生方法", "公式与模型假设"],
+      "coverage": {
+        "chapter_2_basic_concepts": "14-49",
+        "mandible_biomechanics": "117-133",
+        "tmj_load_analysis": "138-144",
+        "tmj_cartilage": "145-150",
+        "tmj_disc": "151-152",
+        "tmj_capsule_ligament": "153-154",
+        "occlusion_biomechanics": "155"
+      },
+      "url": "https://detail.youzan.com/show/goods?alias=1ydvrj05bxsqr0n"
+    },
+    {
+      "id": "prosthodontics_9e",
+      "title": "口腔修复学",
+      "edition": "第9版",
+      "authors": "赵铱民、周永胜、蒋欣泉 主编",
+      "publisher": "人民卫生出版社",
+      "year": 2026,
+      "isbn": "9787117401456",
+      "priority": "extended",
+      "use": ["咬合重建", "修复学扩展"],
+      "url": "https://www.pmphmall.com/gdsdetail/660883-339212"
+    },
+    {
+      "id": "oral_surgery_9e",
+      "title": "口腔颌面外科学",
+      "edition": "第9版",
+      "authors": "张志愿、石冰、郭传瑸 主编",
+      "publisher": "人民卫生出版社",
+      "year": 2026,
+      "priority": "extended",
+      "use": ["颌面外科扩展", "疾病与手术背景"],
+      "url": "https://item.winxuan.com/1204566599"
+    },
+    {
+      "id": "fung_biomechanics",
+      "title": "Biomechanics: Mechanical Properties of Living Tissues",
+      "edition": "classic",
+      "authors": "Yuan-Cheng Fung",
+      "publisher": "Springer",
+      "year": null,
+      "isbn": null,
+      "priority": "extended",
+      "use": ["连续介质", "黏弹性", "应力应变基础"],
+      "url": null
+    }
+  ]
+}
