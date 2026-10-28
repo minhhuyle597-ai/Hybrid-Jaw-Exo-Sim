@@ -58,6 +58,8 @@
   color: #819088;
   margin-right: 4px;
 }
+.graph-toolbar label {max-width: 100%; font-size: 11px;}
+.graph-toolbar select {max-width: 100%; width: 330px; font-size: 11px;}
 .graph-toolbar button {
   font-size: 11px;
   padding: 6px 9px;
